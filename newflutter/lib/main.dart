@@ -12,8 +12,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(title: Text('앱이름'),),
         body: Text("hello~~!"),
+        bottomNavigationBar: BottomAppBar(
+          child: Container(
+            height: 70,
+          ),
+        ),
       ),
     );
+  }
 }
-
