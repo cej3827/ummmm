@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           actions: [Icon(Icons.home),],
         ),
-        body: Text("hello~~!"),
+        body: Text("내가 해냄ㄷㅂ"),
         bottomNavigationBar: BottomAppBar(
           child: Container(
             height: 70,
