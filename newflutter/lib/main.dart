@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Icon(Icons.phone),
+                Icon(Icons.message),
               ],
             )
           ),
