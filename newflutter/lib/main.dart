@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
               children: [
                 Icon(Icons.phone),
                 Icon(Icons.message),
+                Text("이예원 바보야"),
               ],
             )
           ),
