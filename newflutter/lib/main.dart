@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
                 Icon(Icons.phone),
                 Icon(Icons.message),
                 Icon(Icons.contact_page),
+                Icon(Icons.star),
               ],
             )
           ),
