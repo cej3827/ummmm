@@ -1,9 +1,41 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    home : MyApp()
+  ));
 }
 
+class MyApp extends StatefulWidget{
+  MyApp({Key? key}) : super(key: key);
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+
+
+  @override
+  build(context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("앱이름",style: TextStyle(color: Colors.purple),),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: (){
+            Navigator.pop(context); //뒤로가기
+          },
+          color: Colors.purple,
+          icon : Icon(Icons.arrow_back)
+        ),
+      ),
+    );
+  }
+}
+
+/*
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -33,4 +65,4 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-}
+}*/
