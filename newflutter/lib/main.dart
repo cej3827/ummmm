@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         body: Text("내가 해냄ㄷㅂ"),
         bottomNavigationBar: BottomAppBar(
           child: Container(
-            height: 70,
+            height: 100,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
