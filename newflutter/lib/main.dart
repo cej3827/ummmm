@@ -35,21 +35,23 @@ class _MyAppState extends State<MyApp> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("오늘의 질문"),
-            Text("Q.오늘 뭐 먹었어?", style: TextStyle(color: Colors.purple),),
-            ElevatedButton(
-                child: Text("답변하기"),
-                onPressed: (){},
+            Center(child: Text("오늘의 질문"),),
+            Center(child: Text("Q.오늘 뭐 먹었어?", style: TextStyle(color: Colors.purple),)),
+            Center(
+              child: ElevatedButton(
+                  child: Text("답변하기"),
+                  onPressed: (){},
+              ),
             )
           ],
         ),
       ),
-      bottomNavigationBar: BAB(),
+     // bottomNavigationBar: BAB(),
     );
   }
 }
 
-class BAB extends StatelessWidget {
+/*class BAB extends StatelessWidget {
   BAB({Key? key}) : super(key: key);
 
   @override
@@ -58,10 +60,10 @@ class BAB extends StatelessWidget {
       child: Container(
         height: 70,
         padding: EdgeInsets.only(bottom:10,top:5),
-        child: TabBar(
+        //child: TabBar(
 
-        ),
+        //),
       ),
     )
   }
-}
+}*/
