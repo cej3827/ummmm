@@ -45,8 +45,12 @@ class _MyAppState extends State<MyApp> {
             )),
             Center(
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple,
+                ),
                 child: Text("답변하기"),
                 onPressed: () {},
+
               ),
             )
           ],
