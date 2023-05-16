@@ -34,11 +34,42 @@ class _MyAppState extends State<MyApp> {
   ),
   ),
   body: [question(),Text('list'),Text('calender'),Text('My')][tab],
-  bottomNavigationBar: bottombar(), // 하단바 달기
+
+  bottomNavigationBar: BottomNavigationBar(
+    showUnselectedLabels: false,
+    showSelectedLabels: false,
+    onTap: (i) {
+      setState(() {
+        tab = i;
+      });
+    },
+    items: [
+      BottomNavigationBarItem(
+        label: '홈',
+        icon: Icon(Icons.help_outline),
+        activeIcon: Icon(Icons.help),
+      ),
+      BottomNavigationBarItem(
+        label: '샵',
+        icon: Icon(Icons.list_alt_outlined),
+        activeIcon: Icon(Icons.list_alt),
+      ),
+      BottomNavigationBarItem(
+        label: '홈',
+        icon: Icon(Icons.calendar_month_outlined),
+        activeIcon: Icon(Icons.calendar_month),
+      ),
+      BottomNavigationBarItem(
+        label: '홈',
+        icon: Icon(Icons.perm_identity_outlined),
+        activeIcon: Icon(Icons.person),
+      ),
+    ],
+  ), // 하단바 달기
   );
   } // build
 } //_MyAppState
-
+/*
 class bottombar extends StatelessWidget {
   // 하단바 위젯
   bottombar({Key? key}) : super(key: key);
@@ -80,7 +111,7 @@ class bottombar extends StatelessWidget {
     );
   } // build
 } // bottombar
-
+*/
 class question extends StatelessWidget {
   const question({Key? key}) : super(key: key);
 
