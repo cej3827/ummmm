@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'style.dart' as style;
 
 void main() {
-  runApp(
-      MaterialApp(
-          theme: style.theme,
-          home: MyApp()
-      )
-  );
+  runApp(MaterialApp(theme: style.theme, home: MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -22,53 +17,58 @@ class _MyAppState extends State<MyApp> {
 
   @override
   build(context) {
-  return Scaffold(
-  appBar: AppBar(
-  // 상단바
-  title: Text("애오니"),
-  centerTitle: true,
-  backgroundColor: Colors.white,
-  leading: IconButton(// 뒤로가기 버튼
-  onPressed: () {Navigator.pop(context);},
-  icon: Icon(Icons.arrow_back),
-  ),
-  ),
-  body: [question(),Text('list'),Text('calender'),Text('My')][tab],
+    return Scaffold(
+      appBar: AppBar(
+        // 상단바
+        title: Text("애오니"),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          // 뒤로가기 버튼
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
+      ),
+      body: [question(), Text('list'), Text('calender'), Text('My')][tab],
 
-  bottomNavigationBar: BottomNavigationBar(
-    showUnselectedLabels: false,
-    showSelectedLabels: false,
-    onTap: (i) {
-      setState(() {
-        tab = i;
-      });
-    },
-    items: [
-      BottomNavigationBarItem(
-        label: '홈',
-        icon: Icon(Icons.help_outline),
-        activeIcon: Icon(Icons.help),
-      ),
-      BottomNavigationBarItem(
-        label: '샵',
-        icon: Icon(Icons.list_alt_outlined),
-        activeIcon: Icon(Icons.list_alt),
-      ),
-      BottomNavigationBarItem(
-        label: '홈',
-        icon: Icon(Icons.calendar_month_outlined),
-        activeIcon: Icon(Icons.calendar_month),
-      ),
-      BottomNavigationBarItem(
-        label: '홈',
-        icon: Icon(Icons.perm_identity_outlined),
-        activeIcon: Icon(Icons.person),
-      ),
-    ],
-  ), // 하단바 달기
-  );
+      bottomNavigationBar: BottomNavigationBar(
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
+        onTap: (i) {
+          setState(() {
+            tab = i;
+          });
+        },
+
+        items: [
+          BottomNavigationBarItem(
+            label: '오늘의 질문',
+            icon: Icon(Icons.help_outline),
+            activeIcon: Icon(Icons.help),
+          ),
+          BottomNavigationBarItem(
+            label: '질문 리스트',
+            icon: Icon(Icons.list_alt_outlined),
+            activeIcon: Icon(Icons.list_alt),
+          ),
+          BottomNavigationBarItem(
+            label: '캘린더',
+            icon: Icon(Icons.calendar_month_outlined),
+            activeIcon: Icon(Icons.calendar_month),
+          ),
+          BottomNavigationBarItem(
+            label: 'MY',
+            icon: Icon(Icons.perm_identity_outlined),
+            activeIcon: Icon(Icons.person),
+          ),
+        ],
+      ), // 하단바 달기
+    );
   } // build
 } //_MyAppState
+
 /*
 class bottombar extends StatelessWidget {
   // 하단바 위젯
@@ -133,19 +133,18 @@ class question extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox( // 사이 여백 주기
+            SizedBox(
+              // 사이 여백 주기
               height: 90,
             ),
             SizedBox(
               child: Text(
                 "Q. 오늘 뭐 먹었어?",
-                style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.normal
-                ),
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.normal),
               ),
             ),
-            SizedBox( // 사이 여백 주기
+            SizedBox(
+              // 사이 여백 주기
               height: 30,
             ),
             SizedBox(
@@ -161,18 +160,31 @@ class question extends StatelessWidget {
                 onPressed: () {}, // 버튼 누르는 효과
               ),
             ),
-            SizedBox( // 사이 여백 주기
+            SizedBox(
+              // 사이 여백 주기
               height: 90,
             ),
             SizedBox(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Icon(Icons.account_circle, size: 40, color: Colors.cyan,),
-                  Icon(Icons.account_circle, size: 40, color: Colors.red,),
+                  Icon(
+                    Icons.account_circle,
+                    size: 40,
+                    color: Colors.cyan,
+                  ),
+                  Icon(
+                    Icons.account_circle,
+                    size: 40,
+                    color: Colors.red,
+                  ),
                   Icon(Icons.account_circle, size: 40, color: Colors.blue),
                   Icon(Icons.account_circle, size: 40, color: Colors.amber),
-                  Icon(Icons.account_circle, size: 40, color: Colors.brown,),
+                  Icon(
+                    Icons.account_circle,
+                    size: 40,
+                    color: Colors.brown,
+                  ),
                   Icon(Icons.account_circle, size: 40, color: Colors.green),
                 ],
               ),
