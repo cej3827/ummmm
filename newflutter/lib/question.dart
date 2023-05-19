@@ -84,23 +84,11 @@ class question extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Icon(
-                      Icons.account_circle,
-                      size: 40,
-                      color: Colors.cyan,
-                    ),
-                    Icon(
-                      Icons.account_circle,
-                      size: 40,
-                      color: Colors.red,
-                    ),
+                    Icon(Icons.account_circle, size: 40, color: Colors.cyan,),
+                    Icon(Icons.account_circle, size: 40, color: Colors.red,),
                     Icon(Icons.account_circle, size: 40, color: Colors.blue),
                     Icon(Icons.account_circle, size: 40, color: Colors.amber),
-                    Icon(
-                      Icons.account_circle,
-                      size: 40,
-                      color: Colors.brown,
-                    ),
+                    Icon(Icons.account_circle, size: 40, color: Colors.brown,),
                     Icon(Icons.account_circle, size: 40, color: Colors.green),
                   ],
                 ),

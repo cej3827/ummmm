@@ -46,22 +46,22 @@ class _MyAppState extends State<MyApp> {
         items: [
           BottomNavigationBarItem(
             label: '오늘의 질문',
-            icon: Icon(Icons.help_outline),
+            icon: Icon(Icons.help_outline, color: Color(0xFFD05DFF),),
             activeIcon: Icon(Icons.help),
           ),
           BottomNavigationBarItem(
             label: '질문 리스트',
-            icon: Icon(Icons.list_alt_outlined),
+            icon: Icon(Icons.list_alt_outlined, color: Color(0xFFD05DFF),),
             activeIcon: Icon(Icons.list_alt),
           ),
           BottomNavigationBarItem(
             label: '캘린더',
-            icon: Icon(Icons.calendar_month_outlined),
+            icon: Icon(Icons.calendar_month_outlined, color: Color(0xFFD05DFF),),
             activeIcon: Icon(Icons.calendar_month),
           ),
           BottomNavigationBarItem(
             label: 'MY',
-            icon: Icon(Icons.perm_identity_outlined),
+            icon: Icon(Icons.perm_identity_outlined, color: Color(0xFFD05DFF),),
             activeIcon: Icon(Icons.person),
           ),
         ],
