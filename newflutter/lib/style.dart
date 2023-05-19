@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 var theme = ThemeData(
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: Color(0xFFD05DFF),
+      unselectedItemColor: Colors.grey,
     ),
   appBarTheme: AppBarTheme(
     color: Color(0xFFD05DFF),

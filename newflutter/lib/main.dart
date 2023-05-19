@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   var tab = 0;
 
   @override
-  build(context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         // 상단바
@@ -38,6 +38,8 @@ class _MyAppState extends State<MyApp> {
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels: false,
         showSelectedLabels: false,
+        currentIndex: tab,
+        type: BottomNavigationBarType.fixed,
         onTap: (i) {
           setState(() {
             tab = i;
@@ -46,25 +48,26 @@ class _MyAppState extends State<MyApp> {
         items: [
           BottomNavigationBarItem(
             label: '오늘의 질문',
-            icon: Icon(Icons.help_outline, color: Color(0xFFD05DFF),),
+            icon: Icon(Icons.help_outline,),
             activeIcon: Icon(Icons.help),
           ),
           BottomNavigationBarItem(
             label: '질문 리스트',
-            icon: Icon(Icons.list_alt_outlined, color: Color(0xFFD05DFF),),
+            icon: Icon(Icons.list_alt_outlined, ),
             activeIcon: Icon(Icons.list_alt),
           ),
           BottomNavigationBarItem(
             label: '캘린더',
-            icon: Icon(Icons.calendar_month_outlined, color: Color(0xFFD05DFF),),
+            icon: Icon(Icons.calendar_month_outlined, ),
             activeIcon: Icon(Icons.calendar_month),
           ),
           BottomNavigationBarItem(
             label: 'MY',
-            icon: Icon(Icons.perm_identity_outlined, color: Color(0xFFD05DFF),),
+            icon: Icon(Icons.perm_identity_outlined, ),
             activeIcon: Icon(Icons.person),
           ),
         ],
+
       ), // 하단바 달기
     );
   } // build
