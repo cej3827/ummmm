@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
         // 상단바
         title: Text("애오니"),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        //backgroundColor: Colors.white,
         leading: IconButton(
           // 뒤로가기 버튼
           onPressed: () {

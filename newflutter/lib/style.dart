@@ -6,7 +6,7 @@ var theme = ThemeData(
       unselectedItemColor: Colors.grey,
     ),
   appBarTheme: AppBarTheme(
-    color: Color(0xFFD05DFF),
+    backgroundColor: Colors.white,
     elevation: 1,
     titleTextStyle: TextStyle(color: Color(0xFFD05DFF), fontWeight: FontWeight.bold, fontSize: 23, fontFamily: 'cafe',),
     iconTheme: IconThemeData(color: Color(0xFFD05DFF),)

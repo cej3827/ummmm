@@ -13,7 +13,7 @@ final questions = [
   'Q9.'
 ];
 final answers = [
-  '1',
+  '가나ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ',
   '2',
   '3',
   '4',
@@ -40,7 +40,7 @@ class qlist extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (c) {
-                  return answerpopup0();
+                  return answerpopup();
                 }),
               );
             },
@@ -53,19 +53,43 @@ class qlist extends StatelessWidget {
 
 //질문리스트에서 질문 누르면 답변 나오는 새창 만드는 중..
 
-class answerpopup0 extends StatelessWidget {
-  const answerpopup0({Key? key}) : super(key: key);
+class answerpopup extends StatelessWidget {
+  const answerpopup({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      appBar: AppBar(
+        title: Text('애오니'),
+        centerTitle: true,
+      ),
+      body: ListView(
+        padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
         children: [
-          Text(questions[0]),
-          Text(answers[0],
-          )
+          SizedBox(
+            height: 30,
+            child: Text(
+              (questions[0]),
+              style: TextStyle(
+                fontSize: 30,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          //Text(questions[0]),
+          SizedBox(
+            child: Row(
+              children: [
+                Icon(Icons.account_circle, size: 40),
+                Text(
+                  (answers[0]),
+                  style: TextStyle(fontSize: 20),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
