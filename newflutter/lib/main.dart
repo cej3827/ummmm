@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
       appBar: AppBar(
         // 상단바
-        title: Text("애오니"),
+        title: Text("하냥"),
         centerTitle: true,
         //backgroundColor: Colors.white,
         leading: IconButton(
@@ -36,6 +36,7 @@ class _MyAppState extends State<MyApp> {
       body: [question(), qlist(), Text('calender'), Text('My')][tab],
 
       bottomNavigationBar: BottomNavigationBar(
+
         showUnselectedLabels: false,
         showSelectedLabels: false,
         currentIndex: tab,

@@ -20,6 +20,8 @@ class question extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
+                    color : Color(
+                        0xFF788648)
                   ),
                 ),
               ),
@@ -30,7 +32,8 @@ class question extends StatelessWidget {
               SizedBox(
                 child: Text(
                   "Q. 오늘 뭐 먹었어?",
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.normal),
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.normal, color : Color(
+                      0xFF788648)),
                 ),
               ),
               SizedBox(
@@ -40,12 +43,12 @@ class question extends StatelessWidget {
               SizedBox(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFD05DFF),
+                    backgroundColor: Color(0xFFFFA84E),
                     fixedSize: Size(130, 50),
                   ),
                   child: Text(
                     "답변하기",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color : Colors.white),
                   ),
                   onPressed: () {
                     showDialog(
@@ -84,12 +87,12 @@ class question extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Icon(Icons.account_circle, size: 40, color: Colors.cyan,),
-                    Icon(Icons.account_circle, size: 40, color: Colors.red,),
-                    Icon(Icons.account_circle, size: 40, color: Colors.blue),
-                    Icon(Icons.account_circle, size: 40, color: Colors.amber),
-                    Icon(Icons.account_circle, size: 40, color: Colors.brown,),
-                    Icon(Icons.account_circle, size: 40, color: Colors.green),
+                    Icon(Icons.account_circle, size: 40, color: Color(0xFF57642B),),
+                    Icon(Icons.account_circle, size: 40, color: Color(0xFF788648),),
+                    Icon(Icons.account_circle, size: 40, color: Color(0xFFFFA84E),),
+                    Icon(Icons.account_circle, size: 40, color: Color(0xFF788648),),
+                    Icon(Icons.account_circle, size: 40, color: Color(0xFF57642B),),
+                    Icon(Icons.account_circle, size: 40, color: Color(0xFFFFA84E),),
                   ],
                 ),
               ),

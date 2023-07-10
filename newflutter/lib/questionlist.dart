@@ -60,7 +60,7 @@ class answerpopup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('애오니'),
+        title: Text('하냥'),
         centerTitle: true,
       ),
       body: ListView(
