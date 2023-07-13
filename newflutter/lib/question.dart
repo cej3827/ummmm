@@ -8,12 +8,13 @@ class question extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        padding: EdgeInsets.fromLTRB(10, 50, 10, 50), // 상하좌우 여백주기
+        padding: EdgeInsets.fromLTRB(30, 30, 30, 30), // 상하좌우 여백주기
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 30,), //여백
               SizedBox(
                 child: Text(
                   "오늘의 질문",
@@ -25,13 +26,10 @@ class question extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
-                // 사이 여백 주기
-                height: 90,
-              ),
+              SizedBox(height: 30,), //여백
               SizedBox(
                 child: Text(
-                  "Q. 오늘 뭐 먹었어?",
+                  " : 오늘 뭐 먹었어?",
                   style: TextStyle(fontSize: 40, fontWeight: FontWeight.normal, color : Color(
                       0xFF788648)),
                 ),
@@ -44,7 +42,7 @@ class question extends StatelessWidget {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFFFFA84E),
-                    fixedSize: Size(130, 50),
+                    fixedSize: Size(400, 40),
                   ),
                   child: Text(
                     "답변하기",
@@ -81,18 +79,48 @@ class question extends StatelessWidget {
               ),
               SizedBox(
                 // 사이 여백 주기
-                height: 90,
+                height: 70,
               ),
               SizedBox(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Icon(Icons.account_circle, size: 40, color: Color(0xFF57642B),),
-                    Icon(Icons.account_circle, size: 40, color: Color(0xFF788648),),
-                    Icon(Icons.account_circle, size: 40, color: Color(0xFFFFA84E),),
-                    Icon(Icons.account_circle, size: 40, color: Color(0xFF788648),),
-                    Icon(Icons.account_circle, size: 40, color: Color(0xFF57642B),),
-                    Icon(Icons.account_circle, size: 40, color: Color(0xFFFFA84E),),
+                    Column(
+                      children: [
+                        Icon(Icons.account_circle, size: 50, color: Colors.black45,),
+                        Text("이예원", style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Icon(Icons.account_circle, size: 50, color: Colors.black45,),
+                        Text("이예원", style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Icon(Icons.account_circle, size: 50, color: Colors.black45,),
+                        Text("이예원", style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Icon(Icons.account_circle, size: 50, color: Colors.black45,),
+                        Text("이예원", style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Icon(Icons.account_circle, size: 50, color: Colors.black45,),
+                        Text("이예원", style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Icon(Icons.account_circle, size: 50, color: Colors.black45,),
+                        Text("이예원", style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
+                      ],
+                    ),
                   ],
                 ),
               ),
