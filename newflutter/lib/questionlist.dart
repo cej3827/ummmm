@@ -9,11 +9,10 @@ class qlist extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: questions.length,
-      itemBuilder: (context, index) {
-        return Card(
-          //                           <-- Card widget
+      itemBuilder: (BuildContext context, int index) {
+        return Card(color: Color(0xFFFFD3A5),
           child: ListTile(
-            title: Text(questions[index]),
+            title: Text(style: TextStyle(color: Color(0xFF57642B),fontSize: 17,fontWeight: FontWeight.bold,),questions[index]),
             onTap: () {
               Navigator.push(
                 context,
@@ -48,11 +47,12 @@ class answerpopup extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
         children: [
           SizedBox(
-            height: 30,
+            height: 20,
             child: Text(
               (questions[0]),
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
