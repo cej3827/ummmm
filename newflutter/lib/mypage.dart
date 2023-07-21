@@ -173,13 +173,18 @@ class editMemberInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("회원정보수정"),
+        title: Text("회원정보수정"),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        automaticallyImplyLeading: false,
       ),
+      extendBodyBehindAppBar: true,
       body: Center(
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: 20,),
+              SizedBox(height: 150,),
               SizedBox(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

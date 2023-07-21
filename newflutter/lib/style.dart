@@ -6,10 +6,10 @@ var theme = ThemeData(
       unselectedItemColor: Colors.black45,
     ),
   appBarTheme: AppBarTheme(
-    backgroundColor: Color(0xFF57642B),
+    backgroundColor: Colors.white,
     elevation: 1,
-    titleTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23, fontFamily: 'cafe',),
-    iconTheme: IconThemeData(color: Colors.white,)
+    titleTextStyle: TextStyle(color: Color(0xFF57642B), fontWeight: FontWeight.bold, fontSize: 23, fontFamily: 'cafe',),
+    iconTheme: IconThemeData(color: Color(0xFF57642B),)
   ),
   iconTheme: IconThemeData(
     color: Color(0xFF788648), // 전체 아이콘 색상

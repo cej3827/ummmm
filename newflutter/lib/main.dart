@@ -23,17 +23,19 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
       appBar: AppBar(
         // 상단바
-        title: Text("하냥"),
+        //title: Text("하냥"),
         centerTitle: true,
-        //backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
         leading: IconButton(
           // 뒤로가기 버튼
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back_ios_new),
         ),
       ),
+      extendBodyBehindAppBar: true,
       body: [question(), qlist(), Text('calender'), mypage()][tab],
 
       bottomNavigationBar: BottomNavigationBar(
