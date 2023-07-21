@@ -112,7 +112,6 @@ class _mypageState extends State<mypage> {
                         )
                       ],
                     ),
-
                     width: 250, height: 35,
                   ),
                   SizedBox(width: 40,),
@@ -196,7 +195,24 @@ class editMemberInformation extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("아이디:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
+                    Text("닉네임:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                    SizedBox(width: 20,),
+                    Container(
+                      child: Text("애오니",style: TextStyle(color: Colors.black, height:1.6,fontSize: 20, fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 0.5,
+                            blurRadius: 0.5,
+                            offset: Offset(1,1),
+                          )
+                        ],
+                      ),
+                      width: 250, height: 35,
+                    ),
                   ],
                 ),
               ),
@@ -205,7 +221,24 @@ class editMemberInformation extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                  Text("닉네임:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
+                  Text("아이디:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                    SizedBox(width: 20,),
+                    Container(
+                      child: Text("yewon",style: TextStyle(color: Colors.black, height:1.6,fontSize: 20, fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 0.5,
+                            blurRadius: 0.5,
+                            offset: Offset(1,1),
+                          )
+                        ],
+                      ),
+                      width: 250, height: 35,
+                    ),
                   ],
                 ),
               ),
@@ -214,7 +247,24 @@ class editMemberInformation extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("비밀번호:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
+                    Text("비밀번호:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                    SizedBox(width: 20,),
+                    Container(
+                      child: Text("**********",style: TextStyle(color: Colors.black, height:1.6,fontSize: 20, fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 0.5,
+                            blurRadius: 0.5,
+                            offset: Offset(1,1),
+                          )
+                        ],
+                      ),
+                      width: 150, height: 35,
+                    ),
                   ],
                 ),
               ),
@@ -223,7 +273,24 @@ class editMemberInformation extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("전화번호:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
+                    Text("전화번호:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                    SizedBox(width: 20,),
+                    Container(
+                      child: Text("010-4607-5793",style: TextStyle(color: Colors.black, height:1.6,fontSize: 20, fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 0.5,
+                            blurRadius: 0.5,
+                            offset: Offset(1,1),
+                          )
+                        ],
+                      ),
+                      width: 150, height: 35,
+                    ),
                   ],
                 ),
               ),
@@ -232,7 +299,24 @@ class editMemberInformation extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("생년월일:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
+                    Text("생년월일:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                    SizedBox(width: 20,),
+                    Container(
+                      child: Text("2002-11-11",style: TextStyle(color: Colors.black, height:1.6,fontSize: 20, fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 0.5,
+                            blurRadius: 0.5,
+                            offset: Offset(1,1),
+                          )
+                        ],
+                      ),
+                      width: 150, height: 35,
+                    ),
                   ],
                 ),
               ),
