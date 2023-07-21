@@ -47,7 +47,7 @@ class answerpopup extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
         children: [
           SizedBox(
-            height: 20,
+            height: 30,
             child: Text(
               (questions[0]),
               style: TextStyle(
