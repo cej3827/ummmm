@@ -16,11 +16,6 @@ var timeZoneOffset = DateTime.now().timeZoneOffset.inMilliseconds;
 var localTimestamp = (DateTime.now().millisecondsSinceEpoch + timeZoneOffset);
 var unixTimestamp = DateTime.now().millisecondsSinceEpoch;
 
-
-
-
-
-
 //오늘의 질문 창
 class question extends StatelessWidget {
   question({Key? key}) : super(key: key);
@@ -32,13 +27,13 @@ class question extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(0, 30, 0, 30), // 상하좌우 여백주기
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 10,),
+              SizedBox(height: 30,),
               Container(
-                height: 120,
-                padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                height: 100,
+                padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
                 color: Color(0x83CBCCCA),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -46,63 +41,57 @@ class question extends StatelessWidget {
                     Column(
                       children: [
                         Icon(Icons.account_circle, size: 50, color: Colors.black45,),
-                        Text("이예원", style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
+                        Text("이예원", style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold,),),
                       ],
                     ),
                     Column(
                       children: [
                         Icon(Icons.account_circle, size: 50, color: Colors.black45,),
-                        Text("이예원", style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
+                        Text("이예원", style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold,),),
                       ],
                     ),
                     Column(
                       children: [
                         Icon(Icons.account_circle, size: 50, color: Colors.black45,),
-                        Text("이예원", style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
+                        Text("이예원", style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold,),),
                       ],
                     ),
                     Column(
                       children: [
                         Icon(Icons.account_circle, size: 50, color: Colors.black45,),
-                        Text("이예원", style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
+                        Text("이예원", style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold,),),
                       ],
                     ),
                     Column(
                       children: [
                         Icon(Icons.account_circle, size: 50, color: Colors.black45,),
-                        Text("이예원", style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
+                        Text("이예원", style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold,),),
                       ],
                     ),
                     Column(
                       children: [
                         Icon(Icons.account_circle, size: 50, color: Colors.black45,),
-                        Text("이예원", style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
+                        Text("이예원", style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold,),),
                       ],
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 10,),//여백
+              SizedBox(height: 20,),//여백
               Container(
-                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-                child: Container(
-                  String formatDate = DateFormat('yy /MM /dd').format(DateTime.now());
-                  ScaffoldMessenger.of(context).showSnackBar(
-
-            SnackBar(
-              content: Text('$formatDate'),
-            )
-        );
-                ),
+                child: Text("2023년 7월 25일",style: TextStyle(fontSize: 20),),//날짜 변경 해야함
               ),
 
               SizedBox(height: 10,), //여백
               Container(
-                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-                child: Text(
-                  " : 오늘 뭐 먹었어?",
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.normal, color : Color(
-                      0xFF788648)),
+                decoration: BoxDecoration(
+                  color: Color(0xFF788648),
+                  borderRadius: BorderRadius.circular(10)
+                ),
+                width: 270,
+                height: 270,
+                child: Center(
+                  child : Text("므아아아아앙",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 35),),
                 ),
               ),
               SizedBox(
@@ -114,7 +103,7 @@ class question extends StatelessWidget {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFFFFA84E),
-                    fixedSize: Size(400, 40),
+                    fixedSize: Size(200, 40),
                   ),
                   child: Text(
                     "답변하기",
@@ -149,10 +138,10 @@ class question extends StatelessWidget {
                   }, // 버튼 누르는 효과
                 ),
               ),
-              SizedBox(
+              /*SizedBox(
                 // 사이 여백 주기
                 height: 10,
-              ),
+              ),*/
 
             ], // children
           ),
