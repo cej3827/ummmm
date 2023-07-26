@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:timer_builder/timer_builder.dart';
 import 'package:intl/intl.dart';
-var now = new DateTime.now();
+
+/*void check_time(BuildContext context){
+  var now = new DateTime.now();
+  String formatDate = DateFormat('yy /MM /dd').format(now);
+  ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('$formatDate'),
+      )
+  );
+}*/
+
+var timeZoneOffset = DateTime.now().timeZoneOffset.inMilliseconds;
+var localTimestamp = (DateTime.now().millisecondsSinceEpoch + timeZoneOffset);
+var unixTimestamp = DateTime.now().millisecondsSinceEpoch;
+
+
+
+
+
 
 //오늘의 질문 창
 class question extends StatelessWidget {
   question({Key? key}) : super(key: key);
-
-  String formatDate = DateFormat('yy /MM /dd').format(now);
 
   @override
   Widget build(BuildContext context) {
@@ -69,10 +85,17 @@ class question extends StatelessWidget {
               SizedBox(height: 10,),//여백
               Container(
                 padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-                child: SnackBar(
-                  content: Text("$formatDate"),
+                child: Container(
+                  String formatDate = DateFormat('yy /MM /dd').format(DateTime.now());
+                  ScaffoldMessenger.of(context).showSnackBar(
+
+            SnackBar(
+              content: Text('$formatDate'),
+            )
+        );
                 ),
               ),
+
               SizedBox(height: 10,), //여백
               Container(
                 padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
