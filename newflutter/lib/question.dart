@@ -22,8 +22,8 @@ class question extends StatelessWidget {
             children: [
               SizedBox(height: 30,),
               Container(
-                height: 100,
-                padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                height: 90,
+                padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
                 color: Color(0x83CBCCCA),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -67,9 +67,9 @@ class question extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 40,),//여백
-              Container(margin: EdgeInsets.fromLTRB(0, 0, 120, 0),
-                child: Text('$formattedDate', style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold,),
+              SizedBox(height: 20,),//여백
+              Container(margin: EdgeInsets.fromLTRB(0, 0, 100, 0),
+                child: Text('$formattedDate', style: TextStyle(color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold,),
                 ),//날짜 변경 해야함
               ),
 
@@ -77,17 +77,17 @@ class question extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   color: Color(0xFF788648),
-                  borderRadius: BorderRadius.circular(10)
+                  borderRadius: BorderRadius.circular(15)
                 ),
-                width: 300,
-                height: 300,
+                width: 290,
+                height: 290,
                 child: Center(
                   child : Text("므아아아아앙",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 35),),
                 ),
               ),
               SizedBox(
                 // 사이 여백 주기
-                height: 30,
+                height: 15,
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
@@ -129,10 +129,7 @@ class question extends StatelessWidget {
                   }, // 버튼 누르는 효과
                 ),
               ),
-              /*SizedBox(
-                // 사이 여백 주기
-                height: 10,
-              ),*/
+
 
             ], // children
           ),
