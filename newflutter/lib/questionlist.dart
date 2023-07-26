@@ -1,5 +1,44 @@
 import 'package:flutter/material.dart';
 
+class Contact{
+  String title;
+  String num;
+  //IconData icon;
+  Contact(this.title, this.num);
+}
+
+List<Contact> buildContacts(){
+  List<Contact> contacts = [];
+  contacts.add(Contact('오늘 뭐 먹었어?', 'Q1',));
+  contacts.add(Contact('오늘의 TMI는?', 'Q2',));
+  contacts.add(Contact('니가 잘못했잖아 미친넘아?','Q3',));
+  contacts.add(Contact('요즘 빠진 옷은?', 'Q4',));
+
+  return contacts;
+}
+
+List<ListTile> showContacts(){
+  List colors = [Color(0xFF788648), Color(0xFFFFA84E),];
+  List<Contact> contacts = buildContacts();
+  for(int i = 0; i<20; i++){
+    contacts.addAll(buildContacts());
+  }
+  List<ListTile> list = [];
+  for(var contact in contacts) {
+    list.add(ListTile(
+      title: Text(contact.title),
+      //subtitle: Text(contact.subtitle),
+      leading: CircleAvatar(backgroundColor: Color(0xFF788648),
+        child: Text(contact.num, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)
+        //backgroundColor: colors[colors.length%2],
+      ),
+      trailing: const Icon(Icons.keyboard_arrow_right),
+      onTap: () => true,
+    ));
+  }
+  return list;
+}
+
 class qlist extends StatelessWidget {
   qlist({Key? key}) : super(key: key);
 
@@ -15,10 +54,32 @@ class qlist extends StatelessWidget {
     '66666'
   ];
 
+  Widget createSingleBox(int position){
+    List colors = [Colors.amberAccent, Colors.deepOrangeAccent, Colors.deepPurple, Colors.lightGreen, Colors.lightBlue];
+    Container box = Container(
+        color: colors[position%5],
+        width: 100.0,
+        height: 100.0,
+        child: Text(position.toString())
+    );
+    return box;
+  }
+
+  Widget createSeparator(int position){
+    Widget separator = Container(
+      height: 10, color: Colors.black,
+    );
+    return separator;
+  }
+
   //var answers = ['1', '2', '3', '4', '5','6', '7', '8', '9',];
   @override
   Widget build(BuildContext context) {
+    final sizeX = MediaQuery.of(context).size.width;
+    final sizeY = MediaQuery.of(context).size.height;
     return Container(
+      width: sizeX,
+      height: sizeY,
       decoration: BoxDecoration(color: Color(0xFFEAE7E5)),
       child: Container(
         margin: EdgeInsets.fromLTRB(0, 80, 0, 0),
@@ -35,12 +96,9 @@ class qlist extends StatelessWidget {
               topLeft: Radius.circular(20),
               topRight: Radius.circular(20),
             )),
-        child: ListView.builder(
-          itemCount: questions.length,
-          itemBuilder: (BuildContext context, int index) {
-            return ;
-          },
-        ),
+
+
+        child: ListView(children: showContacts(),)
       ),
     );
   }
