@@ -3,27 +3,57 @@ import 'package:flutter/material.dart';
 class qlist extends StatelessWidget {
   qlist({Key? key}) : super(key: key);
 
-  var questions = ['Q1. 오늘 뭐 먹었어?', 'Q2. 잠온다', 'Q3. 집가고싶다', 'Q4.', 'Q5.', 'Q6.', 'Q7.', 'Q8.', 'Q9.'];
+  var questions = [
+    'Q1. 오늘 뭐 먹었어?',
+    'Q2. 잠온다',
+    'Q3. 집가고싶다',
+    'Q4.',
+    'Q5.',
+    'Q6.',
+    'Q7.',
+    'Q8.',
+    'Q9.'
+  ];
+
   //var answers = ['1', '2', '3', '4', '5','6', '7', '8', '9',];
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: questions.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Card(color: Color(0xFFFFD3A5),
-          child: ListTile(
-            title: Text(style: TextStyle(color: Color(0xFF57642B),fontSize: 17,fontWeight: FontWeight.bold,),questions[index]),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (c) {
-                  return answerpopup();
-                }),
-              );
-            },
-          ),
-        );
-      },
+    return Container(
+      decoration: BoxDecoration(color: Colors.grey),
+      child: Container(
+        margin: EdgeInsets.fromLTRB(0, 100, 0, 0),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            )),
+        child: ListView.builder(
+          itemCount: questions.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Card(
+              color: Color(0xFFFFD3A5),
+              child: ListTile(
+                title: Text(
+                    style: TextStyle(
+                      color: Color(0xFF57642B),
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    questions[index]),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (c) {
+                      return answerpopup();
+                    }),
+                  );
+                },
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }
@@ -33,45 +63,79 @@ class qlist extends StatelessWidget {
 class answerpopup extends StatelessWidget {
   answerpopup({Key? key}) : super(key: key);
 
-  var questions = ['Q1. 오늘 뭐 먹었어?', 'Q2. 잠온다', 'Q3. 집가고싶다', 'Q4.', 'Q5.', 'Q6.', 'Q7.', 'Q8.', 'Q9.'];
-  var answers = ['1', '2', '3', '4', '5','6', '7', '8', '9',];
+  var questions = [
+    'Q1. 오늘 뭐 먹었어?',
+    'Q2. 잠온다',
+    'Q3. 집가고싶다',
+    'Q4.',
+    'Q5.',
+    'Q6.',
+    'Q7.',
+    'Q8.',
+    'Q9.'
+  ];
+  var answers = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('하냥'),
+        title: Text('질문 리스트'),
         centerTitle: true,
       ),
-      body: ListView(
-        padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
-        children: [
-          SizedBox(
-            height: 30,
-            child: Text(
-              (questions[0]),
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          //Text(questions[0]),
-          SizedBox(
-            child: Row(
-              children: [
-                Icon(Icons.account_circle, size: 40),
-                Text(
-                  (answers[0]),
-                  style: TextStyle(fontSize: 20),
+      body: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey,
+        ),
+        child: Container(
+          margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+          decoration: BoxDecoration(
+              color: Colors.white70,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(10),
+                bottomRight: Radius.circular(10),
+              )),
+          child: ListView(
+            padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
+            children: [
+              SizedBox(
+                height: 30,
+                child: Text(
+                  (questions[0]),
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              //Text(questions[0]),
+              SizedBox(
+                child: Row(
+                  children: [
+                    Icon(Icons.account_circle, size: 40),
+                    Text(
+                      (answers[0]),
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
