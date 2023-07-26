@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
       appBar: AppBar(
         // 상단바
-        //title: Text("하냥"),
+        title: Text("하냥"),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0.0,

@@ -19,10 +19,17 @@ class qlist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: Colors.grey),
+      decoration: BoxDecoration(color: Color(0xFFEAE7E5)),
       child: Container(
-        margin: EdgeInsets.fromLTRB(0, 100, 0, 0),
-        decoration: BoxDecoration(
+        margin: EdgeInsets.fromLTRB(0, 80, 0, 0),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: Offset(0,3),
+          ),
+        ],
             color: Colors.white,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20),

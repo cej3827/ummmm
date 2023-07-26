@@ -2,19 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:timer_builder/timer_builder.dart';
 import 'package:intl/intl.dart';
 
-/*void check_time(BuildContext context){
-  var now = new DateTime.now();
-  String formatDate = DateFormat('yy /MM /dd').format(now);
-  ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('$formatDate'),
-      )
-  );
-}*/
 
-var timeZoneOffset = DateTime.now().timeZoneOffset.inMilliseconds;
-var localTimestamp = (DateTime.now().millisecondsSinceEpoch + timeZoneOffset);
-var unixTimestamp = DateTime.now().millisecondsSinceEpoch;
+var _toDay = DateTime.now();
 
 //오늘의 질문 창
 class question extends StatelessWidget {
@@ -79,7 +68,8 @@ class question extends StatelessWidget {
               ),
               SizedBox(height: 20,),//여백
               Container(
-                child: Text("2023년 7월 25일",style: TextStyle(fontSize: 20),),//날짜 변경 해야함
+                child: Text('2023 - 07 - 26'
+                ),//날짜 변경 해야함
               ),
 
               SizedBox(height: 10,), //여백
