@@ -3,7 +3,8 @@ import 'package:timer_builder/timer_builder.dart';
 import 'package:intl/intl.dart';
 
 
-var _toDay = DateTime.now();
+final String now = new DateTime.now().toString();
+String formattedDate = DateFormat('yyyy년 MM월 dd일').format(DateTime.now());
 
 //오늘의 질문 창
 class question extends StatelessWidget {
@@ -66,9 +67,9 @@ class question extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 20,),//여백
-              Container(
-                child: Text('2023 - 07 - 26'
+              SizedBox(height: 40,),//여백
+              Container(margin: EdgeInsets.fromLTRB(0, 0, 120, 0),
+                child: Text('$formattedDate', style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold,),
                 ),//날짜 변경 해야함
               ),
 
@@ -78,8 +79,8 @@ class question extends StatelessWidget {
                   color: Color(0xFF788648),
                   borderRadius: BorderRadius.circular(10)
                 ),
-                width: 270,
-                height: 270,
+                width: 300,
+                height: 300,
                 child: Center(
                   child : Text("므아아아아앙",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 35),),
                 ),
