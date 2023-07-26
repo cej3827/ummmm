@@ -4,15 +4,15 @@ class qlist extends StatelessWidget {
   qlist({Key? key}) : super(key: key);
 
   var questions = [
-    'Q1. 오늘 뭐 먹었어?',
-    'Q2. 잠온다',
-    'Q3. 집가고싶다',
-    'Q4.',
-    'Q5.',
-    'Q6.',
-    'Q7.',
-    'Q8.',
-    'Q9.'
+    '오늘 뭐 먹었어?',
+    '잠온다',
+    '집가고싶다',
+    '11111',
+    '222222',
+    '33333',
+    '44444',
+    '55555',
+    '66666'
   ];
 
   //var answers = ['1', '2', '3', '4', '5','6', '7', '8', '9',];
@@ -38,25 +38,18 @@ class qlist extends StatelessWidget {
         child: ListView.builder(
           itemCount: questions.length,
           itemBuilder: (BuildContext context, int index) {
-            return Card(
-              color: Color(0xFFFFD3A5),
-              child: ListTile(
-                title: Text(
-                    style: TextStyle(
-                      color: Color(0xFF57642B),
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    questions[index]),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (c) {
-                      return answerpopup();
-                    }),
-                  );
-                },
-              ),
+            return Row(
+              children: [
+                Container(
+                  width: 20,
+                  height: 20,
+                  child: Text('Q ${index}',style: TextStyle(color: Colors.black),),
+                  decoration: BoxDecoration(
+                    color: Colors.lightGreen,
+                      borderRadius: BorderRadius.circular(30)
+                  ),
+                ),
+                Text(questions[index])],
             );
           },
         ),
@@ -71,15 +64,15 @@ class answerpopup extends StatelessWidget {
   answerpopup({Key? key}) : super(key: key);
 
   var questions = [
-    'Q1. 오늘 뭐 먹었어?',
-    'Q2. 잠온다',
-    'Q3. 집가고싶다',
-    'Q4.',
-    'Q5.',
-    'Q6.',
-    'Q7.',
-    'Q8.',
-    'Q9.'
+    '오늘 뭐 먹었어?',
+    '잠온다',
+    '집가고싶다',
+    '11111',
+    '222222',
+    '33333',
+    '44444',
+    '55555',
+    '66666'
   ];
   var answers = [
     '1',
