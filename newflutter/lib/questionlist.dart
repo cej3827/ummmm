@@ -38,19 +38,7 @@ class qlist extends StatelessWidget {
         child: ListView.builder(
           itemCount: questions.length,
           itemBuilder: (BuildContext context, int index) {
-            return Row(
-              children: [
-                Container(
-                  width: 20,
-                  height: 20,
-                  child: Text('Q ${index}',style: TextStyle(color: Colors.black),),
-                  decoration: BoxDecoration(
-                    color: Colors.lightGreen,
-                      borderRadius: BorderRadius.circular(30)
-                  ),
-                ),
-                Text(questions[index])],
-            );
+            return ;
           },
         ),
       ),

@@ -3,6 +3,7 @@ import 'style.dart' as style;
 import 'question.dart';
 import 'questionlist.dart';
 import 'mypage.dart';
+import 'calenderpage.dart';
 
 void main() {
   runApp(MaterialApp(theme: style.theme, home: MyApp()));
@@ -36,7 +37,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       extendBodyBehindAppBar: true,
-      body: [question(), qlist(), Text('calender'), mypage()][tab],
+      body: [question(), qlist(), calender(), mypage()][tab],
 
       bottomNavigationBar: BottomNavigationBar(
 
