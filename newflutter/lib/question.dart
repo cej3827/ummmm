@@ -67,7 +67,7 @@ class question extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 40,),//여백
+              SizedBox(height: 30,),//여백
               Container(margin: EdgeInsets.fromLTRB(0, 0, 120, 0),
                 child: Text('$formattedDate', style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold,),
                 ),//날짜 변경 해야함
