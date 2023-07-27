@@ -7,63 +7,8 @@ class Contact{
   Contact(this.title, this.num);
 }
 
-List<Contact> buildContacts(){
-  List<Contact> contacts = [];
-  contacts.add(Contact('오늘 뭐 먹었어?', 'Q1',));
-  contacts.add(Contact('오늘의 TMI는?', 'Q2',));
-  contacts.add(Contact('니가 잘못했잖아 미친넘아?','Q3',));
-  contacts.add(Contact('요즘 빠진 옷은?', 'Q4',));
-
-  return contacts;
-}
-
-List<ListTile> showContacts(){
-  List colors = [Color(0xFF788648), Color(0xFFFFA84E),];
-  List<Contact> contacts = buildContacts();
-  for(int i = 0; i<20; i++){
-    contacts.addAll(buildContacts());
-  }
-  List<ListTile> list = [];
-  for(var contact in contacts) {
-    list.add(ListTile(
-      title: Text(contact.title),
-      //subtitle: Text(contact.subtitle),
-      leading: CircleAvatar(backgroundColor: Color(0xFF788648),
-        child: Text(contact.num, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)
-        //backgroundColor: colors[colors.length%2],
-      ),
-      trailing: const Icon(Icons.keyboard_arrow_right),
-      onTap: () => true,
-    ));
-  }
-  return list;
-}
-
 class qlist extends StatelessWidget {
   qlist({Key? key}) : super(key: key);
-
-  var questions = [
-    '오늘 뭐 먹었어?',
-    '잠온다',
-    '집가고싶다',
-    '11111',
-    '222222',
-    '33333',
-    '44444',
-    '55555',
-    '66666'
-  ];
-
-  Widget createSingleBox(int position){
-    List colors = [Colors.amberAccent, Colors.deepOrangeAccent, Colors.deepPurple, Colors.lightGreen, Colors.lightBlue];
-    Container box = Container(
-        color: colors[position%5],
-        width: 100.0,
-        height: 100.0,
-        child: Text(position.toString())
-    );
-    return box;
-  }
 
   Widget createSeparator(int position){
     Widget separator = Container(
@@ -72,9 +17,42 @@ class qlist extends StatelessWidget {
     return separator;
   }
 
+  List<Contact> buildContacts(){
+    List<Contact> contacts = [];
+    contacts.add(Contact('오늘 뭐 먹었어?', 'Q1',));
+    contacts.add(Contact('오늘의 TMI는?', 'Q2',));
+    contacts.add(Contact('니가 잘못했잖아 미친넘아?','Q3',));
+    contacts.add(Contact('요즘 빠진 옷은?', 'Q4',));
+
+    return contacts;
+  }
+
   //var answers = ['1', '2', '3', '4', '5','6', '7', '8', '9',];
   @override
   Widget build(BuildContext context) {
+    List<ListTile> showContacts(){
+      //List colors = [Color(0xFF788648), Color(0xFFFFA84E),];
+      List<Contact> contacts = buildContacts();
+      for(int i = 0; i<3; i++){
+        contacts.addAll(buildContacts());
+      }
+      List<ListTile> list = [];
+      for(var contact in contacts) {
+        list.add(ListTile(
+          title: Text(contact.title, style: TextStyle(fontSize: 20)),
+          //subtitle: Text(contact.subtitle),
+          leading: CircleAvatar(radius: 20,backgroundColor: Color(0xFF788648),
+              child: Text(contact.num, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)
+            //backgroundColor: colors[colors.length%2],
+          ),
+          trailing: const Icon(Icons.keyboard_arrow_right),
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => answerpopup()),);
+          },
+        ));
+      }
+      return list;
+    }
     final sizeX = MediaQuery.of(context).size.width;
     final sizeY = MediaQuery.of(context).size.height;
     return Container(
