@@ -6,6 +6,63 @@ import 'package:intl/intl.dart';
 final String now = new DateTime.now().toString();
 String formattedDate = DateFormat('yyyy년 MM월 dd일').format(DateTime.now());
 
+class MyAlertDialog extends StatefulWidget {
+  const MyAlertDialog({Key? key}) : super(key: key);
+
+  @override
+  _MyAlertDialogState createState() => _MyAlertDialogState();
+}
+
+class _MyAlertDialogState extends State<MyAlertDialog> {
+  bool isCompleted = false;
+
+  @override
+  Widget build(BuildContext context){
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+      backgroundColor: Color(0xFFFFA84E),
+      fixedSize: Size(200, 40),
+    ),
+      child: Text(
+        "${isCompleted == true ? '수정하기' : '답변하기'}",
+        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color : Colors.white),
+      ),
+      onPressed: () {
+        showDialog<String>(
+            context: context,
+            builder: (BuildContext con) {
+              return AlertDialog(
+                title: Text("오늘 뭐 먹었어?"),
+                content: SingleChildScrollView(
+                  child: TextField(
+                    keyboardType: TextInputType.multiline,
+                    maxLines: null,
+                    decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(40)),
+                  ),
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      setState((){
+                        isCompleted == true ? isCompleted = false : isCompleted = true;
+                      });
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text("제출"),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: const Text("취소"),
+                  ),
+                ],
+              );
+            });
+      }, // 버튼 누르는 효과
+    );
+  }
+}
+
 //오늘의 질문 창
 class question extends StatelessWidget {
   question({Key? key}) : super(key: key);
@@ -91,43 +148,7 @@ class question extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFFFA84E),
-                    fixedSize: Size(200, 40),
-                  ),
-                  child: Text(
-                    "답변하기",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color : Colors.white),
-                  ),
-                  onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext con) {
-                          return AlertDialog(
-                            title: Text("오늘 뭐 먹었어?"),
-                            content: SingleChildScrollView(
-                              child: TextField(
-                                keyboardType: TextInputType.multiline,
-                                maxLines: null,
-                                decoration: InputDecoration(
-                                    contentPadding: EdgeInsets.all(40)),
-                              ),
-                            ),
-                            actions: [
-                              TextButton(
-                                onPressed: () => Navigator.of(context).pop(),
-                                child: Text("제출"),
-                              ),
-                              TextButton(
-                                onPressed: () => Navigator.of(context).pop(),
-                                child: Text("취소"),
-                              ),
-                            ],
-                          );
-                        });
-                  }, // 버튼 누르는 효과
-                ),
+                child: MyAlertDialog(),
               ),
 
 

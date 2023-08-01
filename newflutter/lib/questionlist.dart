@@ -4,13 +4,11 @@ class Contact{
   String title;
   String num;
   int indexnum;
-  //IconData icon;
   Contact(this.title, this.num, this.indexnum);
 }
 
 class qlist extends StatelessWidget {
   qlist({Key? key}) : super(key: key);
-
 
   List<Contact> buildContacts(){
     List<Contact> contacts = [];
@@ -23,11 +21,9 @@ class qlist extends StatelessWidget {
     return contacts;
   }
 
-  //var answers = ['1', '2', '3', '4', '5','6', '7', '8', '9',];
   @override
   Widget build(BuildContext context) {
     List<ListTile> showContacts() {
-      //List colors = [Color(0xFF788648), Color(0xFFFFA84E),];
       List<Contact> contacts = buildContacts();
       for (int i = 1; i < 1; i++) {
         contacts.addAll(buildContacts());
@@ -44,7 +40,6 @@ class qlist extends StatelessWidget {
                 radius: 20, backgroundColor: Color(0xFF788648),
                 child: Text(contact.num, style: TextStyle(
                     color: Colors.black, fontWeight: FontWeight.bold),)
-              //backgroundColor: colors[colors.length%2],
             ),
             trailing: const Icon(Icons.keyboard_arrow_right),
             onTap: () {
@@ -62,7 +57,6 @@ class qlist extends StatelessWidget {
                 radius: 20, backgroundColor: Color(0xFFFFA84E),
                 child: Text(contact.num, style: TextStyle(
                     color: Colors.black, fontWeight: FontWeight.bold),)
-              //backgroundColor: colors[colors.length%2],
             ),
             trailing: const Icon(Icons.keyboard_arrow_right),
             onTap: () {
