@@ -72,6 +72,7 @@ class _calendarState extends State<calendar> {
                   labelText: '세부 사항',
                 ),
               ),
+
             ],
           ),
           actions: [
@@ -135,6 +136,10 @@ class _calendarState extends State<calendar> {
               firstDay: DateTime.utc(2023,01,01),
               lastDay: DateTime.utc(2023,12,31),
               calendarFormat: _calendarFormat,
+              headerStyle: HeaderStyle(
+                formatButtonVisible: false,
+                titleCentered: true,
+              ),
 
               onDaySelected: (selectedDay, focusedDay){
                 if(!isSameDay(_selectedDate, selectedDay)){
