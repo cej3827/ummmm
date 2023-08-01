@@ -3,26 +3,22 @@ import 'package:flutter/material.dart';
 class Contact{
   String title;
   String num;
+  int indexnum;
   //IconData icon;
-  Contact(this.title, this.num);
+  Contact(this.title, this.num, this.indexnum);
 }
 
 class qlist extends StatelessWidget {
   qlist({Key? key}) : super(key: key);
 
-  Widget createSeparator(int position){
-    Widget separator = Container(
-      height: 10, color: Colors.black,
-    );
-    return separator;
-  }
 
   List<Contact> buildContacts(){
     List<Contact> contacts = [];
-    contacts.add(Contact('오늘 뭐 먹었어?', 'Q1',));
-    contacts.add(Contact('오늘의 TMI는?', 'Q2',));
-    contacts.add(Contact('니가 잘못했잖아 미친넘아?','Q3',));
-    contacts.add(Contact('요즘 빠진 옷은?', 'Q4',));
+    contacts.add(Contact('오늘 뭐 먹었어?', 'Q1',1));
+    contacts.add(Contact('오늘의 TMI는?', 'Q2',2));
+    contacts.add(Contact('니가 잘못했잖아 미친넘아?','Q3',3));
+    contacts.add(Contact('요즘 빠진 옷은?', 'Q4',4));
+    contacts.add(Contact('오늘 꾼 꿈은 뭐야?', 'Q5',5));
 
     return contacts;
   }
@@ -30,28 +26,55 @@ class qlist extends StatelessWidget {
   //var answers = ['1', '2', '3', '4', '5','6', '7', '8', '9',];
   @override
   Widget build(BuildContext context) {
-    List<ListTile> showContacts(){
+    List<ListTile> showContacts() {
       //List colors = [Color(0xFF788648), Color(0xFFFFA84E),];
       List<Contact> contacts = buildContacts();
-      for(int i = 0; i<3; i++){
+      for (int i = 1; i < 1; i++) {
         contacts.addAll(buildContacts());
       }
       List<ListTile> list = [];
-      for(var contact in contacts) {
-        list.add(ListTile(
-          title: Text(contact.title, style: TextStyle(fontSize: 20)),
-          //subtitle: Text(contact.subtitle),
-          leading: CircleAvatar(radius: 20,backgroundColor: Color(0xFF788648),
-              child: Text(contact.num, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)
-            //backgroundColor: colors[colors.length%2],
-          ),
-          trailing: const Icon(Icons.keyboard_arrow_right),
-          onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => answerpopup()),);
-          },
-        ));
+
+      for (var contact in contacts) {
+        if (contact.indexnum % 2 == 0) {
+          list.add(ListTile(
+
+            title: Text(contact.title, style: TextStyle(fontSize: 20)),
+            //subtitle: Text(contact.subtitle),
+            leading: CircleAvatar(
+                radius: 20, backgroundColor: Color(0xFF788648),
+                child: Text(contact.num, style: TextStyle(
+                    color: Colors.black, fontWeight: FontWeight.bold),)
+              //backgroundColor: colors[colors.length%2],
+            ),
+            trailing: const Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => answerpopup()),);
+            },
+          ));
+        }
+        else{
+          list.add(ListTile(
+
+            title: Text(contact.title, style: TextStyle(fontSize: 20)),
+            //subtitle: Text(contact.subtitle),
+            leading: CircleAvatar(
+                radius: 20, backgroundColor: Color(0xFFFFA84E),
+                child: Text(contact.num, style: TextStyle(
+                    color: Colors.black, fontWeight: FontWeight.bold),)
+              //backgroundColor: colors[colors.length%2],
+            ),
+            trailing: const Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => answerpopup()),);
+            },
+          ));
+
+        }
       }
-      return list;
+          return list;
+
     }
     final sizeX = MediaQuery.of(context).size.width;
     final sizeY = MediaQuery.of(context).size.height;
