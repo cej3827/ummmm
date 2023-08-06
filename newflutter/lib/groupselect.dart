@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newflutter/groupcreate.dart';
 import 'package:newflutter/main.dart';
 
 class groupSelect extends StatefulWidget {
@@ -53,7 +54,12 @@ class _groupSelectState extends State<groupSelect> {
                       SizedBox(
                         width: 130, height: 120,
                         child: IconButton(
-                            onPressed: (){},
+                            onPressed: (){
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context)=>groupCreate())
+                              );
+                            },
                             icon: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
