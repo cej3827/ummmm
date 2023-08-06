@@ -18,13 +18,13 @@ void addRoute({
       route = MaterialPageRoute(builder: (context)=>mypage());
       break;
     case 'route_second_screen':
-      route = MaterialPageRoute(builder: (context)=> const editMemberInformation());
+      route = MaterialPageRoute(builder: (context)=> editMemberInformation());
       break;
     case 'route_third_screen':
-      route = MaterialPageRoute(builder: (context)=> const announcement());
+      route = MaterialPageRoute(builder: (context)=> announcement());
       break;
     case 'route_fourth_screen':
-      route = MaterialPageRoute(builder: (context)=> const privacy());
+      route = MaterialPageRoute(builder: (context)=> privacy());
       break;
   }
   routes[screen] = route;
@@ -46,7 +46,12 @@ class mypage extends StatefulWidget {
 }
 
 class _mypageState extends State<mypage> {
-
+/*
+  final nameController = TextEditingController();
+  final pwController = TextEditingController();
+  final pnController = TextEditingController();
+  final bdController = TextEditingController();
+*/
   bool _isChecked=false;
 
   @override
@@ -167,7 +172,12 @@ class _mypageState extends State<mypage> {
 
 //회워정보수정 탭
 class editMemberInformation extends StatelessWidget {
-  const editMemberInformation({Key? key}) : super(key: key);
+  editMemberInformation({Key? key}) : super(key: key);
+
+  final nameController = TextEditingController();
+  final pwController = TextEditingController();
+  final pnController = TextEditingController();
+  final bdController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -200,33 +210,7 @@ class editMemberInformation extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("닉네임:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                    SizedBox(width: 20,),
-                    Container(
-                      child: Text("애오니",style: TextStyle(color: Colors.black, height:1.6,fontSize: 20, fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 0.5,
-                            blurRadius: 0.5,
-                            offset: Offset(1,1),
-                          )
-                        ],
-                      ),
-                      width: 250, height: 35,
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 20,),
-              SizedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                  Text("아이디:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                    Text("아이디:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                     SizedBox(width: 20,),
                     Container(
                       child: Text("yewon",style: TextStyle(color: Colors.black, height:1.6,fontSize: 20, fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
@@ -242,8 +226,73 @@ class editMemberInformation extends StatelessWidget {
                           )
                         ],
                       ),
-                      width: 250, height: 35,
+                      width: 200, height: 35,
                     ),
+                    SizedBox(width: 45,)
+                  ],
+                ),
+              ),
+              SizedBox(height: 20,),
+              SizedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(width: 20,),
+                    Text("닉네임:",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                    SizedBox(width: 20,),
+                    Container(
+                      child: Text("예원",style: TextStyle(color: Colors.black, height:1.6,fontSize: 20, fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 0.5,
+                            blurRadius: 0.5,
+                            offset: Offset(1,1),
+                          )
+                        ],
+                      ),
+                      width: 200, height: 35,
+                    ),
+                    Container(
+                      child: TextButton(
+                        child: Text("수정",style: TextStyle(color: Color(0xFF57642B),fontWeight: FontWeight.bold),),
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context){
+                                return AlertDialog(
+                                  title: Text("닉네임 수정"),
+                                  content: TextField(
+                                    controller: nameController,
+                                    decoration: InputDecoration(hintText: '수정하실 닉네임을 작성해주세요.'),
+                                  ),
+                                  actions: <Widget>[
+                                    Container(
+                                      child: TextButton(
+                                        onPressed: (){
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text("취소",style: TextStyle(color: Color(0xFF57642B),fontWeight: FontWeight.bold),),
+                                      ),
+                                    ),
+                                    Container(
+                                      child: TextButton(
+                                        onPressed: (){
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text("완료",style: TextStyle(color: Color(0xFF57642B),fontWeight: FontWeight.bold),),
+                                      ),
+                                    )
+                                  ],
+                                );
+                              }
+                          );
+                        },
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -268,8 +317,57 @@ class editMemberInformation extends StatelessWidget {
                           )
                         ],
                       ),
-                      width: 150, height: 35,
+                      width: 200, height: 35,
                     ),
+                    Container(
+                      child: TextButton(
+                        child: Text("수정",style: TextStyle(color: Color(0xFF57642B),fontWeight: FontWeight.bold),),
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context){
+                                return AlertDialog(
+                                  title: Text("비밀번호 수정"),
+                                  content:Column(mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      TextField(
+                                        controller: nameController,
+                                        decoration: InputDecoration(hintText: '현재 비밀번호'),
+                                      ),
+                                      TextField(
+                                        controller: nameController,
+                                        decoration: InputDecoration(hintText: '새 비밀번호'),
+                                      ),
+                                      TextField(
+                                        controller: nameController,
+                                        decoration: InputDecoration(hintText: '비밀번호 확인'),
+                                      ),
+                                    ],
+                                  ),
+                                  actions: <Widget>[
+                                    Container(
+                                      child: TextButton(
+                                        onPressed: (){
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text("취소",style: TextStyle(color: Color(0xFF57642B),fontWeight: FontWeight.bold),),
+                                      ),
+                                    ),
+                                    Container(
+                                      child: TextButton(
+                                        onPressed: (){
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text("완료",style: TextStyle(color: Color(0xFF57642B),fontWeight: FontWeight.bold),),
+                                      ),
+                                    )
+                                  ],
+                                );
+                              }
+                          );
+                        },
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -294,8 +392,53 @@ class editMemberInformation extends StatelessWidget {
                           )
                         ],
                       ),
-                      width: 150, height: 35,
+                      width: 200, height: 35,
                     ),
+                    Container(
+                      child: TextButton(
+                        child: Text("수정",style: TextStyle(color: Color(0xFF57642B),fontWeight: FontWeight.bold),),
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context){
+                                return AlertDialog(
+                                  title: Text("전화번호 수정"),
+                                  content:Column(mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      TextField(
+                                        controller: nameController,
+                                        decoration: InputDecoration(hintText: '전화번호 입력'),
+                                      ),
+                                      TextField(
+                                        controller: nameController,
+                                        decoration: InputDecoration(hintText: '인증번호'),
+                                      ),
+                                    ],
+                                  ),
+                                  actions: <Widget>[
+                                    Container(
+                                      child: TextButton(
+                                        onPressed: (){
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text("취소",style: TextStyle(color: Color(0xFF57642B),fontWeight: FontWeight.bold),),
+                                      ),
+                                    ),
+                                    Container(
+                                      child: TextButton(
+                                        onPressed: (){
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text("완료",style: TextStyle(color: Color(0xFF57642B),fontWeight: FontWeight.bold),),
+                                      ),
+                                    )
+                                  ],
+                                );
+                              }
+                          );
+                        },
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -320,8 +463,45 @@ class editMemberInformation extends StatelessWidget {
                           )
                         ],
                       ),
-                      width: 150, height: 35,
+                      width: 200, height: 35,
                     ),
+                    Container(
+                      child: TextButton(
+                        child: Text("수정",style: TextStyle(color: Color(0xFF57642B),fontWeight: FontWeight.bold),),
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context){
+                                return AlertDialog(
+                                  title: Text("생년월일 수정"),
+                                  content: TextField(
+                                    controller: nameController,
+                                    decoration: InputDecoration(hintText: '수정하실 생년월일을 작성해주세요.'),
+                                  ),
+                                  actions: <Widget>[
+                                    Container(
+                                      child: TextButton(
+                                        onPressed: (){
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text("취소",style: TextStyle(color: Color(0xFF57642B),fontWeight: FontWeight.bold),),
+                                      ),
+                                    ),
+                                    Container(
+                                      child: TextButton(
+                                        onPressed: (){
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text("완료",style: TextStyle(color: Color(0xFF57642B),fontWeight: FontWeight.bold),),
+                                      ),
+                                    )
+                                  ],
+                                );
+                              }
+                          );
+                        },
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -378,7 +558,7 @@ class privacy extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("공지사항"),
+        title: const Text("개인정보 처리방침"),
       ),
       body: Center(
         child:SizedBox(
