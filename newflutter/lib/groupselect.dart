@@ -43,7 +43,7 @@ class _groupSelectState extends State<groupSelect> {
                             icon: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Icon(Icons.account_circle,size: 80),
+                                Icon(Icons.account_circle,size: 80, color: Color(0xFFFFA84E),),
                                 Text("멧돌과 맹구",style: TextStyle(fontSize: 17),),
                               ],
                             )
@@ -57,7 +57,7 @@ class _groupSelectState extends State<groupSelect> {
                             icon: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Icon(Icons.add_box_outlined,size: 80,),
+                                Icon(Icons.add_box_outlined,size: 80,color: Color(0xFFFFA84E),),
                                 Text("그룹 추가",style: TextStyle(fontSize: 17),)
                               ],
                             )
