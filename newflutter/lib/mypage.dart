@@ -406,11 +406,11 @@ class editMemberInformation extends StatelessWidget {
                                   content:Column(mainAxisSize: MainAxisSize.min,
                                     children: [
                                       TextField(
-                                        controller: nameController,
+                                        keyboardType: TextInputType.numberWithOptions(),
                                         decoration: InputDecoration(hintText: '전화번호 입력'),
                                       ),
                                       TextField(
-                                        controller: nameController,
+                                        keyboardType: TextInputType.numberWithOptions(),
                                         decoration: InputDecoration(hintText: '인증번호'),
                                       ),
                                     ],
@@ -475,7 +475,7 @@ class editMemberInformation extends StatelessWidget {
                                 return AlertDialog(
                                   title: Text("생년월일 수정"),
                                   content: TextField(
-                                    controller: nameController,
+                                    keyboardType: TextInputType.numberWithOptions(),
                                     decoration: InputDecoration(hintText: '수정하실 생년월일을 작성해주세요.'),
                                   ),
                                   actions: <Widget>[
