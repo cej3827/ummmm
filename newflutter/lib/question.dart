@@ -67,11 +67,17 @@ class _MyAlertDialogState extends State<MyAlertDialog> {
 class question extends StatelessWidget {
   question({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
+    final sizeX = MediaQuery.of(context).size.width;
+    final sizeY = MediaQuery.of(context).size.height;
+
     return Center(
       child: Container(
-        padding: EdgeInsets.fromLTRB(0, 30, 0, 30), // 상하좌우 여백주기
+        width: sizeX,
+        height: sizeY,
+        padding: EdgeInsets.fromLTRB(0, 50, 0, 30), // 상하좌우 여백주기
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -125,13 +131,15 @@ class question extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20,),//여백
-              Container(margin: EdgeInsets.fromLTRB(0, 0, 100, 0),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 0, 100, 0),
                 child: Text('$formattedDate', style: TextStyle(color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold,),
                 ),//날짜 변경 해야함
               ),
 
               SizedBox(height: 10,), //여백
               Container(
+
                 decoration: BoxDecoration(
                   color: Color(0xFF788648),
                   borderRadius: BorderRadius.circular(15)
@@ -139,7 +147,7 @@ class question extends StatelessWidget {
                 width: 290,
                 height: 290,
                 child: Center(
-                  child : Text("므아아아아앙",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 35),),
+                  child : Text("오늘 뭐 먹었어?",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 35),),
                 ),
               ),
               SizedBox(

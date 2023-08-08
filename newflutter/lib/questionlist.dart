@@ -8,6 +8,7 @@ class Contact {
   Contact(this.title, this.num, this.indexnum);
 }
 
+//질문리스트
 class qlist extends StatelessWidget {
   qlist({Key? key}) : super(key: key);
 
@@ -77,14 +78,9 @@ class qlist extends StatelessWidget {
       return list;
     }
 
-    final sizeX = MediaQuery
-        .of(context)
-        .size
-        .width;
-    final sizeY = MediaQuery
-        .of(context)
-        .size
-        .height;
+    final sizeX = MediaQuery.of(context).size.width;
+    final sizeY = MediaQuery.of(context).size.height;
+
     return Container(
       width: sizeX,
       height: sizeY,
@@ -112,8 +108,7 @@ class qlist extends StatelessWidget {
   }
 }
 
-//질문리스트에서 질문 누르면 답변 나오는 새창 만드는 중..
-
+// 답변창
 class answerpopup extends StatelessWidget {
   answerpopup({Key? key}) : super(key: key);
 
