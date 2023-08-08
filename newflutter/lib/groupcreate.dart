@@ -114,22 +114,66 @@ class _groupCreateState extends State<groupCreate> {
 
                   ),
                   Step(
-                    title: new Text('Address'),
+                    title: new Text('그룹 생성'),
                     content: Column(
                       children: <Widget>[
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Home Address'),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('그룹 프로필',style: TextStyle(fontSize: 20),),
+                            SizedBox(width: 70,),
+                            Container(width: 80,height: 80,color: Colors.teal,),
+                            SizedBox(width: 10,),
+                            Column(
+                              children: [
+                                Icon(Icons.camera_alt,size: 40,),
+                                Icon(Icons.image,size: 40,)
+                              ],
+                            )
+                          ],
                         ),
                         TextFormField(
-                          decoration: InputDecoration(labelText: 'Postcode'),
+                          decoration: InputDecoration(labelStyle: TextStyle(color: Colors.black,fontSize: 20),labelText: '그룹 이름', hintText: '그룹 이름 입력'),
+                        ),
+                        SizedBox(height: 20,),
+                        Container(
+                            padding: EdgeInsets.fromLTRB(0, 0, 285, 0),
+                            child: Column(
+                              children: [
+                                Text('그룹 색상',style: TextStyle(fontSize: 20),),
+                                SizedBox(height: 10,),
+                                Container(
+                                  width: 200, height: 30,
+                                  //color: _selectedValue.color,
+                                  child: DropdownButton(
+                                    isExpanded: true,
+                                    value: _selectedValue,
+                                    items: _colorList.map<DropdownMenuItem<ColorItem>>(
+                                            (ColorItem item) => DropdownMenuItem<ColorItem>(
+                                          value: item,
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            //constraints: BoxConstraints(minHeight: 48.0),
+                                            color: item.color,
+                                            child: Text(item.name),
+                                          ),
+                                        ))
+                                        .toList(),
+                                    onChanged: (ColorItem? value)=>
+                                        setState(() => _selectedValue = value!),
+                                  ),
+                                )
+                              ],
+                            )
                         ),
                         SizedBox(height: 50,)
                       ],
                     ),
                     isActive: _currentStep >= 0,
-                    state: _currentStep >= 1
+                    state: _currentStep >= 0
                         ? StepState.complete
                         : StepState.disabled,
+
                   ),
                   Step(
                     title: new Text('Mobile Number'),
