@@ -178,27 +178,49 @@ class answerpopup extends StatelessWidget {
               Container(
                 margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
                 color: Color(0xFFFFD3A5),
-                child: Container(
-                  width: sizeX,
-                  height: sizeY,
-                  margin: EdgeInsets.all(10),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Flexible(
-                        child: Text('나는 오늘 명란젓에 김싸먹고 베이컨 먹음',
-                          style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18,),textAlign: TextAlign.end,),
-                      ),
-                      SizedBox(width: 10,),
-                      Column(
-                        //mainAxisAlignment: MainAxisAlignment.center,
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.account_circle, color: Colors.grey, size: 50),
-                          Text('감자', style: TextStyle(fontSize: 15),)
+                          Flexible(
+                            child: Text('나는 오늘 명란젓에 김싸먹고 베이컨 먹음',
+                              style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18,),textAlign: TextAlign.end,),
+                          ),
+                          SizedBox(width: 10,),
+                          Column(
+                            //mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.account_circle, color: Colors.grey, size: 50),
+                              Text('감자', style: TextStyle(fontSize: 15),)
+                            ],
+                          ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Flexible(
+                            child: Text('냉털한다고 유통기한 얼마 안남은 두부랑 스팸 구워먹었뜸 ㄷㄷ',
+                              style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18,),textAlign: TextAlign.end,),
+                          ),
+                          SizedBox(width: 10,),
+                          Column(
+                            //mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.account_circle, color: Colors.grey, size: 50),
+                              Text('고구마', style: TextStyle(fontSize: 15),)
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
