@@ -112,7 +112,6 @@ class qlist extends StatelessWidget {
   }
 }
 
-//질문리스트에서 질문 누르면 답변 나오는 새창 만드는 중..
 
 class answerpopup extends StatelessWidget {
   answerpopup({Key? key}) : super(key: key);
