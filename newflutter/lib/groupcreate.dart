@@ -114,13 +114,13 @@ class _groupCreateState extends State<groupCreate> {
 
                   ),
                   Step(
-                    title: new Text('그룹 생성'),
+                    title: new Text('프로필 생성'),
                     content: Column(
                       children: <Widget>[
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('그룹 프로필',style: TextStyle(fontSize: 20),),
+                            Text('개인 프로필',style: TextStyle(fontSize: 20),),
                             SizedBox(width: 70,),
                             Container(width: 80,height: 80,color: Colors.teal,),
                             SizedBox(width: 10,),
@@ -133,14 +133,14 @@ class _groupCreateState extends State<groupCreate> {
                           ],
                         ),
                         TextFormField(
-                          decoration: InputDecoration(labelStyle: TextStyle(color: Colors.black,fontSize: 20),labelText: '그룹 이름', hintText: '그룹 이름 입력'),
+                          decoration: InputDecoration(labelStyle: TextStyle(color: Colors.black,fontSize: 20),labelText: '프로필 닉네임', hintText: '프로필 닉네임 입력'),
                         ),
                         SizedBox(height: 20,),
                         Container(
                             padding: EdgeInsets.fromLTRB(0, 0, 285, 0),
                             child: Column(
                               children: [
-                                Text('그룹 색상',style: TextStyle(fontSize: 20),),
+                                Text('개인 색상',style: TextStyle(fontSize: 20),),
                                 SizedBox(height: 10,),
                                 Container(
                                   width: 200, height: 30,
@@ -170,10 +170,9 @@ class _groupCreateState extends State<groupCreate> {
                       ],
                     ),
                     isActive: _currentStep >= 0,
-                    state: _currentStep >= 0
+                    state: _currentStep >= 1
                         ? StepState.complete
                         : StepState.disabled,
-
                   ),
                   Step(
                     title: new Text('Mobile Number'),
