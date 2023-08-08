@@ -22,7 +22,7 @@ class _MyAlertDialogState extends State<MyAlertDialog> {
       style: ElevatedButton.styleFrom(
       backgroundColor: Color(0xFFFFA84E),
       fixedSize: Size(200, 40),
-    ),
+      ),
       child: Text(
         "${isCompleted == true ? '수정하기' : '답변하기'}",
         style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color : Colors.white),

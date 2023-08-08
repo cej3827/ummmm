@@ -104,13 +104,14 @@ class _groupCreateState extends State<groupCreate> {
                               ],
                             )
                         ),
-
+                        SizedBox(height: 50,)
                       ],
                     ),
                     isActive: _currentStep >= 0,
                     state: _currentStep >= 0
                         ? StepState.complete
                         : StepState.disabled,
+
                   ),
                   Step(
                     title: new Text('Address'),
@@ -122,6 +123,7 @@ class _groupCreateState extends State<groupCreate> {
                         TextFormField(
                           decoration: InputDecoration(labelText: 'Postcode'),
                         ),
+                        SizedBox(height: 50,)
                       ],
                     ),
                     isActive: _currentStep >= 0,
@@ -136,14 +138,44 @@ class _groupCreateState extends State<groupCreate> {
                         TextFormField(
                           decoration: InputDecoration(labelText: 'Mobile Number'),
                         ),
+                        SizedBox(height: 50,)
                       ],
                     ),
                     isActive: _currentStep >= 0,
                     state: _currentStep >= 2
                         ? StepState.complete
                         : StepState.disabled,
-                  )
+                  ),
+
                 ],
+                controlsBuilder: (BuildContext context, ControlsDetails details) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text('그룹 생성 취소',style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold),),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFFE0E0E0),
+                          fixedSize: Size(150, 25),
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          continued();
+                        },
+                        child: Text('다음',style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFFFFA84E),
+                          fixedSize: Size(70, 25),
+                        ),
+                      ),
+
+                    ],
+                  );
+                },
               )
             )
           ],
