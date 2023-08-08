@@ -8,6 +8,7 @@ class Contact {
   Contact(this.title, this.num, this.indexnum);
 }
 
+//질문리스트
 class qlist extends StatelessWidget {
   qlist({Key? key}) : super(key: key);
 
@@ -35,7 +36,6 @@ class qlist extends StatelessWidget {
         if (contact.indexnum % 2 == 0) {
           list.add(ListTile(
             title: Text(contact.title, style: TextStyle(fontSize: 20)),
-
             leading: CircleAvatar(
                 radius: 20,
                 backgroundColor: Color(0xFF788648),
@@ -77,14 +77,9 @@ class qlist extends StatelessWidget {
       return list;
     }
 
-    final sizeX = MediaQuery
-        .of(context)
-        .size
-        .width;
-    final sizeY = MediaQuery
-        .of(context)
-        .size
-        .height;
+    final sizeX = MediaQuery.of(context).size.width;
+    final sizeY = MediaQuery.of(context).size.height;
+
     return Container(
       width: sizeX,
       height: sizeY,
@@ -112,7 +107,7 @@ class qlist extends StatelessWidget {
   }
 }
 
-
+// 답변창
 class answerpopup extends StatelessWidget {
   answerpopup({Key? key}) : super(key: key);
 
@@ -129,14 +124,8 @@ class answerpopup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sizeX = MediaQuery
-        .of(context)
-        .size
-        .width;
-    final sizeY = MediaQuery
-        .of(context)
-        .size
-        .height;
+    final sizeX = MediaQuery.of(context).size.width;
+    final sizeY = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: Text("질문 리스트"),
@@ -144,7 +133,6 @@ class answerpopup extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         leading: IconButton(
-          // 뒤로가기 버튼
           onPressed: () {
             Navigator.pop(context);
           },
@@ -185,19 +173,33 @@ class answerpopup extends StatelessWidget {
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25),
                     )),
-              )),
+              ),),
               Container(height: 20),
               Container(
-                height: 300,
                 margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
                 color: Color(0xFFFFD3A5),
-                child: ListTile(
-                title: Text('오늘 뭐 먹었게?', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                child: Container(
+                  width: sizeX,
+                  height: sizeY,
+                  margin: EdgeInsets.all(10),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Flexible(
+                        child: Text('나는 오늘 명란젓에 김싸먹고 베이컨 먹음',
+                          style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18,),textAlign: TextAlign.end,),
+                      ),
+                      SizedBox(width: 10,),
+                      Column(
+                        //mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.account_circle, color: Colors.grey, size: 50),
+                          Text('감자', style: TextStyle(fontSize: 15),)
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                  leading: Icon(Icons.account_circle, size: 50, color: Colors.black45,),
-                ),
-
-
               ),
             ],
 

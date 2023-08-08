@@ -9,9 +9,9 @@ Map<String, MaterialPageRoute<dynamic>?> routes = {
 };
 
 void addRoute({
-  required String screen,
-  required Function(MaterialPageRoute route) callback,
-}){
+      required String screen,
+      required Function(MaterialPageRoute route) callback,
+    }) {
   MaterialPageRoute? route;
   switch(screen){
     case 'route_screen':
@@ -46,12 +46,7 @@ class mypage extends StatefulWidget {
 }
 
 class _mypageState extends State<mypage> {
-/*
-  final nameController = TextEditingController();
-  final pwController = TextEditingController();
-  final pnController = TextEditingController();
-  final bdController = TextEditingController();
-*/
+
   bool _isChecked=false;
 
   @override
@@ -128,7 +123,6 @@ class _mypageState extends State<mypage> {
                           _isChecked = value ??false;
                         });
                       },
-
                   ),
                 ],
               ),
@@ -170,7 +164,7 @@ class _mypageState extends State<mypage> {
   }
 }
 
-//회워정보수정 탭
+//회원정보수정 탭
 class editMemberInformation extends StatelessWidget {
   editMemberInformation({Key? key}) : super(key: key);
 
