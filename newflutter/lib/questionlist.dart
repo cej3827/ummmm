@@ -220,6 +220,26 @@ class answerpopup extends StatelessWidget {
                         ],
                       ),
                     ),
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Flexible(
+                            child: Text('꽃뚜껑 갈거임 ㄷㄷㄷㄷ 거기 껍데기가 진짜 개개개개개개존맛탱구리구리',
+                              style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18,),textAlign: TextAlign.end,),
+                          ),
+                          SizedBox(width: 10,),
+                          Column(
+                            //mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.account_circle, color: Colors.grey, size: 50),
+                              Text('옥수수', style: TextStyle(fontSize: 15),)
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
