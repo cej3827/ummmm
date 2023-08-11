@@ -14,6 +14,8 @@ class _joinState extends State<join> {
   final joinPwCheck = TextEditingController();
   final joinPn = TextEditingController();
   final joinBd = TextEditingController();
+  bool? _isAgree = false;
+  bool? _isMarketing = false;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class _joinState extends State<join> {
                   ],
                 ),
                 width: 350,
-                height: 550,
+                height: 600,
                 child: Column(
                   children: [
                     SizedBox(
@@ -130,8 +132,34 @@ class _joinState extends State<join> {
                     Container(
                       child: Column(
                         children: [
-                          Text('이용약관 동의'),
-                          Text('마케팅 정보 수신 동의'),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('      이용약관 동의'),
+                              Checkbox(
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),
+                                  fillColor: const MaterialStatePropertyAll(Color(0xFF788648)),
+                                  value: _isAgree, onChanged: (value){
+                                    setState(() {
+                                      _isAgree = value;
+                                    });
+                                  }),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('     마케팅 정보 수신 동의'),
+                              Checkbox(
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),
+                                  fillColor: const MaterialStatePropertyAll(Color(0xFF788648)),
+                                  value: _isMarketing, onChanged: (value){
+                                    setState(() {
+                                      _isMarketing = value;
+                                    });
+                                  }),
+                            ],
+                          ),
                         ],
                       ),
                     ),

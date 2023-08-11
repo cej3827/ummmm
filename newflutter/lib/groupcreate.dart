@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'dart:io';
 import 'groupselect.dart';
+import 'package:image_picker/image_picker.dart';
+
 
 class groupCreate extends StatefulWidget {
   const groupCreate({Key? key}) : super(key: key);
@@ -20,6 +23,26 @@ class _groupCreateState extends State<groupCreate> {
   int _currentStep = 0;
   StepperType stepperType = StepperType.vertical;
   var outputText = ' ';
+  final ImagePicker _picker = ImagePicker();
+  XFile? _pickedFile;
+
+  void getImageCamera() async {
+    final pickedFile = await _picker.pickImage(source: ImageSource.camera);
+    if(pickedFile != null){
+      setState(() {
+        _pickedFile = pickedFile;
+      });
+     }
+  }
+
+  void getImageGallery() async{
+    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+    if(pickedFile != null){
+      setState(() {
+        _pickedFile = pickedFile;
+      });
+    }
+  }
 
   final List<ColorItem> _colorList = [
     ColorItem("geen", Colors.green),
@@ -47,6 +70,7 @@ class _groupCreateState extends State<groupCreate> {
 
   @override
   Widget build(BuildContext context) {
+    final _imageSize = MediaQuery.of(context).size.width / 4;
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -80,12 +104,33 @@ class _groupCreateState extends State<groupCreate> {
                             children: [
                               Text('그룹 프로필', style: TextStyle(fontSize: 20),),
                               SizedBox(width: 70,),
-                              Container(width: 80, height: 80, color: Colors.teal,),
+                              if(_pickedFile == null)
+                                Container(constraints: BoxConstraints(
+                                  minHeight: _imageSize,
+                                  minWidth: _imageSize,
+                              ),
+                                child: Icon(Icons.square, size: _imageSize),)
+                              else
+                                Container(
+                                  width: _imageSize,
+                                  height: _imageSize,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                    image: DecorationImage(
+                                      image: FileImage(File(_pickedFile!.path)),
+                                      fit: BoxFit.cover
+                                    ),
+                                  ),
+                                ),
                               SizedBox(width: 10,),
                               Column(
                                 children: [
-                                  Icon(Icons.camera_alt, size: 40,),
-                                  Icon(Icons.image, size: 40,)
+                                  IconButton(
+                                    onPressed: () => getImageCamera(),
+                                    icon: Icon(Icons.camera_alt, size: 40,),),
+                                  IconButton(
+                                    onPressed: () => getImageGallery(),
+                                    icon: Icon(Icons.image, size: 40,),),
                                 ],
                               )
                             ],
