@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newflutter/groupselect.dart';
+import 'package:newflutter/idFind.dart';
 import 'package:newflutter/joinpage.dart';
 import 'package:newflutter/main.dart';
 import 'package:newflutter/question.dart';
@@ -94,8 +95,13 @@ class _MyLoginState extends State<MyLogin> {
                             decoration: InputDecoration(hintText: '비민번호'),
                           ),
                           TextButton(
-                              onPressed: (){},
-                              child: Text('아이디/비밀번호 찾기',style: TextStyle(fontSize: 13,color: Color(0xFFFFA84E)),)
+                              onPressed: (){
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context)=>const idFindPage())
+                                );
+                              },
+                              child: (Text('아이디/비밀번호 찾기',style: TextStyle(fontSize: 13,color: Color(0xFFFFA84E)),))
                           )
                         ],
                       ),
