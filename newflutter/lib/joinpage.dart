@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
 
+
 class join extends StatefulWidget {
   const join({Key? key}) : super(key: key);
 
@@ -11,10 +12,12 @@ class join extends StatefulWidget {
 class _joinState extends State<join> {
 
   String _ID = '';
-  String _PW = '';
-  String _checkPW = '';
   String _PN = '';
   String _BD = '';
+
+  TextEditingController _PW = TextEditingController();
+  TextEditingController _checkPW = TextEditingController();
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool? _isAgree = false;
   bool? _isMarketing = false;
@@ -94,6 +97,7 @@ class _joinState extends State<join> {
                               child: Column(
                                 children: [
                                   TextFormField(
+                                    autovalidateMode: AutovalidateMode.always,
                                     decoration: InputDecoration(
                                       labelText: '아이디',
                                       hintText: '아이디(5-10자)',
@@ -103,7 +107,7 @@ class _joinState extends State<join> {
                                       if(value!.isEmpty) {
                                         return '아이디가 비어있습니다.';
                                       }
-                                      if(value!.length < 5){
+                                      if(value.length < 5){
                                         return '아이디는 5자 이상입니다.';
                                       }
                                       return null;
@@ -113,6 +117,8 @@ class _joinState extends State<join> {
                                     },
                                   ),
                                   TextFormField(
+                                    controller: _PW,
+                                    autovalidateMode: AutovalidateMode.always,
                                     decoration: InputDecoration(
                                       labelText: '비밀번호',
                                       hintText: '비밀번호(8-20자)',
@@ -122,35 +128,32 @@ class _joinState extends State<join> {
                                       if(value!.isEmpty) {
                                         return '비밀번호가 비어있습니다.';
                                       }
-                                      if(value!.length < 8){
+                                      if(value.length < 8){
                                         return '비밀번호는 5자 이상입니다.';
                                       }
                                       return null;
                                     },
-                                    onSaved: (value){
-                                      _PW = value!;
-                                    },
                                   ),
                                   TextFormField(
+                                    controller: _checkPW,
+                                    autovalidateMode: AutovalidateMode.always,
                                     decoration: InputDecoration(
                                       labelText: '비밀번호 확인',
                                       hintText: '비밀번호 재입력',
                                     ),
                                     maxLength: 20,
-                                    validator: (_checkPW){
-                                      if(_checkPW!.isEmpty) {
+                                    validator: (value){
+                                      if(value!.isEmpty) {
                                         return '비밀번호가 비어있습니다.';
                                       }
-                                      if(_checkPW != _PW){
+                                      if(_checkPW.text != _PW.text){
                                         return '비밀번호가 일치하지 않습니다.';
                                       }
                                       return null;
                                     },
-                                    onSaved: (value){
-                                      _checkPW = value!;
-                                    },
                                   ),
                                   TextFormField(
+                                    autovalidateMode: AutovalidateMode.always,
                                     decoration: InputDecoration(
                                       labelText: '전화번호',
                                       hintText: "전화번호('-'제외 11자)",
@@ -164,10 +167,13 @@ class _joinState extends State<join> {
                                       return null;
                                     },
                                     onSaved: (value){
-                                      _PN = value!;
+                                      setState(() {
+                                        _PN = value!;
+                                      });
                                     },
                                   ),
                                   TextFormField(
+                                    autovalidateMode: AutovalidateMode.always,
                                     decoration: InputDecoration(
                                       labelText: '생년월일',
                                       hintText: '생년월일(8자)',
@@ -178,13 +184,15 @@ class _joinState extends State<join> {
                                       if(value!.isEmpty) {
                                         return '생년월일이 비어있습니다.';
                                       }
-                                      if(value!.length != 8){
+                                      if(value.length != 8){
                                         return '생년월일은 8자입니다.';
                                       }
                                       return null;
                                     },
                                     onSaved: (value){
-                                      _BD = value!;
+                                      setState(() {
+                                        _BD = value!;
+                                      });
                                     },
                                   ),
                                   Row(
@@ -248,4 +256,3 @@ class _joinState extends State<join> {
     );
   }
 }
-

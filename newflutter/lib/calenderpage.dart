@@ -85,15 +85,16 @@ class _calendarState extends State<calendar> {
                   if(titleController.text.isEmpty && descController.text.isEmpty){
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
-                        content: Text('Required title and description'),
+                        content: Text('제목과 메모가 비어있습니다.'),
                         duration: Duration(seconds: 2),
                       )
                     );
                     return;
                   }else{
+                    /*
                     print(titleController.text);
                     print(descController.text);
-
+                    */
                     setState(() {
                       if(mySelectedEvents[DateFormat('yyyy-MM-dd').format(_selectedDate!)]!=null){
                         mySelectedEvents[
@@ -124,6 +125,7 @@ class _calendarState extends State<calendar> {
         )
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
