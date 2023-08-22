@@ -11,6 +11,9 @@ class join extends StatefulWidget {
 
 class _joinState extends State<join> {
 
+  RegExp idChk = new RegExp(r'(^[0-9a-zA-Z]*$)');
+  RegExp passChk = new RegExp(r'(^(?=.*[A-Za-z])(?=.*\d)[A-Za-z0-9!#$%&*+()><,-./=?^_`{|}~]*$)');
+
   String _ID = '';
   String _PN = '';
   String _BD = '';
@@ -84,9 +87,6 @@ class _joinState extends State<join> {
                         ],
                       ),
                     ), //회원가입
-                    //SizedBox(
-                      //height: 20,
-                    //),
                     Container(
                       child: Column(
                         children: [
@@ -97,7 +97,6 @@ class _joinState extends State<join> {
                               child: Column(
                                 children: [
                                   TextFormField(
-                                    autovalidateMode: AutovalidateMode.always,
                                     decoration: InputDecoration(
                                       labelText: '아이디',
                                       hintText: '아이디(5-10자)',
@@ -110,6 +109,9 @@ class _joinState extends State<join> {
                                       if(value.length < 5){
                                         return '아이디는 5자 이상입니다.';
                                       }
+                                      if(!idChk.hasMatch(value)){
+                                        return '영문과 숫자만 가능합니다.';
+                                      }
                                       return null;
                                     },
                                     onSaved: (value){
@@ -118,7 +120,6 @@ class _joinState extends State<join> {
                                   ),
                                   TextFormField(
                                     controller: _PW,
-                                    autovalidateMode: AutovalidateMode.always,
                                     decoration: InputDecoration(
                                       labelText: '비밀번호',
                                       hintText: '비밀번호(8-20자)',
@@ -131,12 +132,14 @@ class _joinState extends State<join> {
                                       if(value.length < 8){
                                         return '비밀번호는 5자 이상입니다.';
                                       }
+                                      if(!passChk.hasMatch(value)){
+                                        return '문자,숫자를 모두 사용해주세요.';
+                                      }
                                       return null;
                                     },
                                   ),
                                   TextFormField(
                                     controller: _checkPW,
-                                    autovalidateMode: AutovalidateMode.always,
                                     decoration: InputDecoration(
                                       labelText: '비밀번호 확인',
                                       hintText: '비밀번호 재입력',
@@ -153,7 +156,6 @@ class _joinState extends State<join> {
                                     },
                                   ),
                                   TextFormField(
-                                    autovalidateMode: AutovalidateMode.always,
                                     decoration: InputDecoration(
                                       labelText: '전화번호',
                                       hintText: "전화번호('-'제외 11자)",
@@ -164,6 +166,9 @@ class _joinState extends State<join> {
                                       if(value!.isEmpty) {
                                         return '전화번호가 비어있습니다.';
                                       }
+                                      if(value!.length != 11){
+                                        return '전화번호는 11자리입니다.';
+                                      }
                                       return null;
                                     },
                                     onSaved: (value){
@@ -173,7 +178,6 @@ class _joinState extends State<join> {
                                     },
                                   ),
                                   TextFormField(
-                                    autovalidateMode: AutovalidateMode.always,
                                     decoration: InputDecoration(
                                       labelText: '생년월일',
                                       hintText: '생년월일(8자)',
@@ -196,9 +200,8 @@ class _joinState extends State<join> {
                                     },
                                   ),
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Text('      이용약관 동의'),
                                       Checkbox(
                                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),
                                           fillColor: const MaterialStatePropertyAll(Color(0xFF788648)),
@@ -207,12 +210,12 @@ class _joinState extends State<join> {
                                           _isAgree = value;
                                         });
                                       }),
+                                      Text('이용약관 동의'),
                                     ],
                                   ),
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Text('     마케팅 정보 수신 동의'),
                                       Checkbox(
                                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),),
                                           fillColor: const MaterialStatePropertyAll(Color(0xFF788648)),
@@ -221,6 +224,7 @@ class _joinState extends State<join> {
                                           _isMarketing = value;
                                         });
                                       }),
+                                      Text('마케팅 정보 수신 동의'),
                                     ],
                                   ),
                                   ElevatedButton(
