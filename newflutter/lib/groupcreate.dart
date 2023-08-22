@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newflutter/main.dart';
 import 'dart:math';
 import 'dart:io';
 import 'groupselect.dart';
@@ -283,8 +284,15 @@ class _groupCreateState extends State<groupCreate> {
                           onPressed: () {
                             if (_currentStep <= 0) {
                               Navigator.pop(context);
-                            } else {
+                            }
+                            if(_currentStep==1){
                               cancel();
+                            }
+                            if(_currentStep==2){
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => MyApp()));
                             }
                           },
                           child: Text('취소', style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
