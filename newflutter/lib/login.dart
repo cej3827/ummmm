@@ -137,36 +137,11 @@ class _MyLoginState extends State<MyLogin> {
                       child: Column(
                         children: [
                           ElevatedButton(
-                              onPressed: () async {
-                                final loginCheck = await postLoginRequest(loginId, loginPw);
-                                print(loginCheck);
-
-                                if(loginCheck == '-1'){
-                                  print('로그인 실패');
-                                  showDialog(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return AlertDialog(
-                                          title: Text('알림'),
-                                          content: Text('일치하지않음'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () {
-                                                Navigator.of(context).pop();
-                                              },
-                                              child: Text('닫기'),
-                                            )
-                                          ],
-                                        );
-                                      });
-                                }else{
-                                  print('로그인 성공');
-
+                              onPressed: (){
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(builder: (context)=>const groupSelect())
                                   );
-                                }
                               },
                               child: Text('로그인',style: TextStyle(fontSize:17,color: Colors.white,fontWeight: FontWeight.bold),),
                               style: ElevatedButton.styleFrom(backgroundColor: Color(
