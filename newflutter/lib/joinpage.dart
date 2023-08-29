@@ -1,6 +1,35 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
+String joinID = '';
+String joinPH = '';
+String joinBD = '';
+
+TextEditingController joinPW = TextEditingController();
+TextEditingController checkPW = TextEditingController();
+
+Future<String> postLoginRequest(String user_ID, String user_PW, String user_PHONE, String user_BIRTHDAY) async{
+  String userID = joinID;
+  String userPW = joinPW as String;
+  String userPH = joinPH;
+  String userBD = joinBD;
+
+  var response = await http.post(
+    Uri.parse('http://43.202.31.89:8080/user/signup'),
+    headers: <String, String>{
+      'Content-Type' : 'application/json',
+    },
+    body: jsonEncode({
+      "user_ID": userID,
+      "user_PW": userPW,
+      "user_PHONE" : userPH,
+      "user_BIRTHDAY" : userBD
+    }),
+  );
+  return response.body;
+}
 
 class join extends StatefulWidget {
   const join({Key? key}) : super(key: key);
@@ -14,12 +43,6 @@ class _joinState extends State<join> {
   RegExp idChk = new RegExp(r'(^[0-9a-zA-Z]*$)');
   RegExp passChk = new RegExp(r'(^(?=.*[A-Za-z])(?=.*\d)[A-Za-z0-9!#$%&*+()><,-./=?^_`{|}~]*$)');
 
-  String _ID = '';
-  String _PN = '';
-  String _BD = '';
-
-  TextEditingController _PW = TextEditingController();
-  TextEditingController _checkPW = TextEditingController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool? _isAgree = false;
@@ -115,11 +138,11 @@ class _joinState extends State<join> {
                                       return null;
                                     },
                                     onSaved: (value){
-                                      _ID = value!;
+                                      joinID = value!;
                                     },
                                   ),
                                   TextFormField(
-                                    controller: _PW,
+                                    controller: joinPW,
                                     decoration: InputDecoration(
                                       labelText: '비밀번호',
                                       hintText: '비밀번호(8-20자)',
@@ -139,7 +162,7 @@ class _joinState extends State<join> {
                                     },
                                   ),
                                   TextFormField(
-                                    controller: _checkPW,
+                                    controller: checkPW,
                                     decoration: InputDecoration(
                                       labelText: '비밀번호 확인',
                                       hintText: '비밀번호 재입력',
@@ -149,7 +172,7 @@ class _joinState extends State<join> {
                                       if(value!.isEmpty) {
                                         return '비밀번호가 비어있습니다.';
                                       }
-                                      if(_checkPW.text != _PW.text){
+                                      if(checkPW.text != joinPW.text){
                                         return '비밀번호가 일치하지 않습니다.';
                                       }
                                       return null;
@@ -173,7 +196,7 @@ class _joinState extends State<join> {
                                     },
                                     onSaved: (value){
                                       setState(() {
-                                        _PN = value!;
+                                        joinPH = value!;
                                       });
                                     },
                                   ),
@@ -195,7 +218,7 @@ class _joinState extends State<join> {
                                     },
                                     onSaved: (value){
                                       setState(() {
-                                        _BD = value!;
+                                        joinBD = value!;
                                       });
                                     },
                                   ),

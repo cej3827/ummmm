@@ -10,9 +10,16 @@ import 'joinpage.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+/*
+final loginId = TextEditingController();
+final loginPw = TextEditingController();
+*/
+String loginId ='';
+String loginPw = '';
+
 Future<String> postLoginRequest(String user_ID, String user_PW) async{
-  String userID = 'test1';
-  String userPW = '0000';
+  String userID = loginId;
+  String userPW = loginPw;
 
   var response = await http.post(
     Uri.parse('http://43.202.31.89:8080/user/login'),
@@ -42,8 +49,8 @@ class MyLogin extends StatefulWidget {
 class _MyLoginState extends State<MyLogin> {
   var tab = 0;
 
-  final loginId = TextEditingController();
-  final loginPw = TextEditingController();
+  //final loginId = TextEditingController();
+  //final loginPw = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -105,12 +112,10 @@ class _MyLoginState extends State<MyLogin> {
                       padding: EdgeInsets.fromLTRB(50, 0, 50, 0),
                       child: Column(
                         children: [
-                          TextField(
-                            controller: loginId,
+                          TextFormField(
                             decoration: InputDecoration(hintText: '아이디'),
                           ),
-                          TextField(
-                            controller: loginPw,
+                          TextFormField(
                             decoration: InputDecoration(hintText: '비밀번호'),
                           ),
                           TextButton(
@@ -133,7 +138,7 @@ class _MyLoginState extends State<MyLogin> {
                         children: [
                           ElevatedButton(
                               onPressed: () async {
-                                final loginCheck = await postLoginRequest(loginId.text, loginPw.text);
+                                final loginCheck = await postLoginRequest(loginId, loginPw);
                                 print(loginCheck);
 
                                 if(loginCheck == '-1'){
