@@ -92,20 +92,6 @@ class _idFindPageState extends State<idFindPage> with SingleTickerProviderStateM
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Container(
-                                  padding: EdgeInsets.fromLTRB(0,0, 250, 0),
-                                  child: Text("이름"),
-                                ),
-                                SizedBox(
-                                  width: 270,height: 40,
-                                  child: TextField(
-                                    controller: _namecontroller,
-                                    decoration: InputDecoration(
-                                      hintText: "이름을 입력해 주세요.",
-                                      border: OutlineInputBorder(),
-                                    ),
-                                  ),
-                                ),
                                 SizedBox(height: 40,),
                                 Container(
                                   padding: EdgeInsets.fromLTRB(0,0, 250, 0),
@@ -167,21 +153,6 @@ class _idFindPageState extends State<idFindPage> with SingleTickerProviderStateM
                                     controller: _namecontroller,
                                     decoration: InputDecoration(
                                       hintText: "아이디를 입력해 주세요.",
-                                      border: OutlineInputBorder(),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 25,),
-                                Container(
-                                  padding: EdgeInsets.fromLTRB(0,0, 250, 0),
-                                  child: Text("이름"),
-                                ),
-                                SizedBox(
-                                  width: 270,height: 40,
-                                  child: TextField(
-                                    controller: _namecontroller,
-                                    decoration: InputDecoration(
-                                      hintText: "이름을 입력해 주세요.",
                                       border: OutlineInputBorder(),
                                     ),
                                   ),
