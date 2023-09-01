@@ -33,14 +33,28 @@ class User {
   }
 }
 
-Future<User> fetchUser() async{
-  final response = await http.get(Uri.https('http://43.202.31.89:8080/user/login'));
+Future<void> login() async {
+  final url = Uri.parse('http://43.202.31.89:8080/user/login');
 
-  if(response.statusCode == 200){
-    return User.fromJson(json.decode(response.body));
+  final user = {
+    'user_ID': 'test1',
+    'user_PW': '0000',
+  };
+
+  final response = await http.post(
+    url,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: jsonEncode(user),
+  );
+
+  if (response.statusCode == 200) {
+    final responseBody = jsonDecode(response.body);
+    print(responseBody); // 처리된 결과 출력 (로그인 성공, 실패 메시지 등)
+  } else {
+    print('Error: ${response.statusCode}');
   }
-  else{
-  throw Exception('데이터 수신 실패');}
 }
 
 void main() async {
@@ -59,12 +73,12 @@ class MyLogin extends StatefulWidget {
 class _MyLoginState extends State<MyLogin> {
   var tab = 0;
 
-  late Future<User> user;
+  late Future<void> user;
 
   @override
   void initState(){
     super.initState();
-    user = fetchUser();
+    user = login();
   }
   //final loginId = TextEditingController();
   //final loginPw = TextEditingController();
@@ -74,7 +88,7 @@ class _MyLoginState extends State<MyLogin> {
     return Scaffold(
       backgroundColor: Color(0xFF788648),
       body: Center(
-        child: FutureBuilder<User>(
+        child: FutureBuilder<void>(
           future: user,
           builder: (context, snapshot) {
             return SingleChildScrollView(
@@ -158,18 +172,7 @@ class _MyLoginState extends State<MyLogin> {
                             children: [
                               ElevatedButton(
                                   onPressed: (){
-                                    if(snapshot.hasData){
-                                      print(snapshot.data!.user_ID);
-                                      print(snapshot.data!.user_PW);
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(builder: (context)=>const groupSelect())
-                                      );}
-                                    else if(snapshot.hasError){
-                                      print('에러');
-                                      print(snapshot.data!.user_ID);
-                                      print(snapshot.data!.user_PW);
-                                    };
+                                    login();
                                   },
                                   child: Text('로그인',style: TextStyle(fontSize:17,color: Colors.white,fontWeight: FontWeight.bold),),
                                   style: ElevatedButton.styleFrom(backgroundColor: Color(
